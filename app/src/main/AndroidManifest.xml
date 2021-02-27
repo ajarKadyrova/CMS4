@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CustomerManagementSystem">
         <activity android:name=".MainActivity"/>
+        <activity android:name=".PasswordActivity"/>
         <activity android:name=".RegistrationActivity"/>
         <activity android:name=".AuthActivity">
             <intent-filter>

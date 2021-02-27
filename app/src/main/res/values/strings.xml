@@ -16,4 +16,8 @@
     <string name="enter_email">Укажите свою почту</string>
     <string name="enter_email_explanation">Введите электронную почту вашего аккаунта, вам будет выслана ссылка на восстановление пароля</string>
     <string name="send_link">Отправьте ссылку</string>
+    <string name="teacher">Преподаватель</string>
+    <string name="start">Старт</string>
+    <string name="students">Ученики</string>
+    <string name="schedule">Расписание</string>
 </resources>

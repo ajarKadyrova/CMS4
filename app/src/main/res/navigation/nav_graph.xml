@@ -10,4 +10,13 @@
         android:name="com.example.customermanagementsystem.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/groupsFragment"
+        android:name="com.example.customermanagementsystem.GroupsFragment"
+        android:label="GroupsFragment" />
+    <fragment
+        android:id="@+id/studentsFragment"
+        android:name="com.example.customermanagementsystem.StudentsFragment"
+        android:label="StudentsFragment" />
+
 </navigation>
