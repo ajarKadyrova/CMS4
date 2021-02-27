@@ -13,4 +13,7 @@
     <string name="password_confirm">Подтверждение пароля</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_email">Укажите свою почту</string>
+    <string name="enter_email_explanation">Введите электронную почту вашего аккаунта, вам будет выслана ссылка на восстановление пароля</string>
+    <string name="send_link">Отправьте ссылку</string>
 </resources>

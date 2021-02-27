@@ -22,5 +22,10 @@ class AuthActivity : AppCompatActivity() {
                 startActivity(it)
             }
         }
+        forgotPassword_btn.setOnClickListener {
+            Intent(this, PasswordActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
 }

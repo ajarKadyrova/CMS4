@@ -76,7 +76,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/textButton"
+                android:id="@+id/forgotPassword_btn"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -96,7 +96,7 @@
                 android:background="@drawable/button_rounded"
                 android:text="@string/login_logo"
                 android:textColor="@android:color/white"
-                android:layout_below="@id/textButton"/>
+                android:layout_below="@id/forgotPassword_btn"/>
 
             <TextView
                 android:id="@+id/textview_or"
