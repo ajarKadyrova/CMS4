@@ -5,29 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".AuthActivity"
-    android:padding="16dp">
+    tools:context=".AuthActivity">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/auth_bg" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"/>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="5dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:padding="20dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="50dp"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="30dp"
                 android:text="@string/login_logo"
                 android:textColor="@color/color_primary"
-                android:textSize="24dp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -35,8 +50,9 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:hint="@string/login">
+                android:layout_marginTop="30dp"
+                android:hint="@string/login"
+                android:layout_below="@id/logo">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -51,7 +67,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/password"
                 android:paddingTop="16dp"
-                app:passwordToggleEnabled="true">
+                app:passwordToggleEnabled="true"
+                android:layout_below="@id/login_otf">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -63,30 +80,34 @@
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
+                android:gravity="end"
                 android:layout_marginTop="10dp"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:text="@string/forgot_password"
                 android:textColor="@color/gray_signIn"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                android:layout_below="@id/password_otf"/>
 
             <Button
                 android:id="@+id/signIn_btn"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:layout_marginTop="60dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/button_rounded"
                 android:text="@string/login_logo"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:layout_below="@id/textButton"/>
 
             <TextView
+                android:id="@+id/textview_or"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/or"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:textColor="@color/dark_gray"
                 android:gravity="center_horizontal"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/signIn_btn"/>
 
             <Button
                 android:id="@+id/signUp_btn"
@@ -96,10 +117,11 @@
                 android:gravity="center_horizontal"
                 android:text="@string/singUp"
                 android:textColor="@color/gray_signIn"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:textAllCaps="false"
-                android:textSize="16dp"/>
-        </LinearLayout>
+                android:textSize="16sp"
+                android:layout_below="@id/textview_or"/>
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 

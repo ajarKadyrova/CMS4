@@ -11,4 +11,6 @@
     <string name="name">Имя</string>
     <string name="email">Электронная почта</string>
     <string name="password_confirm">Подтверждение пароля</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
