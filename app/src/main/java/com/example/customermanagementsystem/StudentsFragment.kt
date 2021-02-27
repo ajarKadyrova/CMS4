@@ -33,7 +33,7 @@ class StudentsFragment : Fragment(){
     private fun generateData(size: Int): List <ClientItem> {
         val list1 = ArrayList<ClientItem>()
         for (i in 0 until size){
-            val item = ClientItem("Турсунбеков Камиль", "+996550121212", "#Python", "12.01.2021")
+            val item = ClientItem("Турсунбеков Камиль", "+996550101010", "#Python", "12.01.2021")
             list1 += item
         }
         return list1;
