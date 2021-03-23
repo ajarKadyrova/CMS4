@@ -1,4 +1,4 @@
-package com.example.customermanagementsystem
+package com.example.customermanagementsystem.models
 
 data class GroupItem (
     val teacher : String,

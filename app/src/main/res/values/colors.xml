@@ -8,4 +8,9 @@
     <color name="color_primary">#9B70FF</color>
     <color name="gray_signIn">#BDBDBD</color>
     <color name="dark_gray">#4F4F4F</color>
+    <color name="green">#3BBE49</color>
+    <color name="main_purple">#653AC9</color>
+    <color name="colorDivider">#E0E0E0</color>
+    <color name="background">#F2F2F2</color>
+    <color name="group_text">#333333</color>
 </resources>

@@ -11,13 +11,18 @@
     <string name="name">Имя</string>
     <string name="email">Электронная почта</string>
     <string name="password_confirm">Подтверждение пароля</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_email">Укажите свою почту</string>
     <string name="enter_email_explanation">Введите электронную почту вашего аккаунта, вам будет выслана ссылка на восстановление пароля</string>
     <string name="send_link">Отправьте ссылку</string>
+    <string name="clients">Клиенты</string>
     <string name="teacher">Преподаватель</string>
     <string name="start">Старт</string>
     <string name="students">Ученики</string>
     <string name="schedule">Расписание</string>
+    <string name="success_password_alert">Запрос на восстановления пароля был успешно принят, проверьте почту</string>
+    <string name="registration_alert">Запрос на регистацию был успешно отправлен  супер админу, ожидайте ответа</string>
+    <string name="password_alert">Введенные пароли не совпадают</string>
+    <string name="change_status">Поменять статус клиента</string>
+    <string name="apply">Применить</string>
+    <string name="open_profile">Открыть профиль</string>
 </resources>

@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainFragment"
-    android:paddingLeft="30dp"
-    android:paddingRight="30dp"
-    android:background="@drawable/gradient_background">
+    tools:context=".fragments.FirstStage"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:background="@color/background">
 
 
     <androidx.recyclerview.widget.RecyclerView
