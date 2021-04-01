@@ -32,7 +32,10 @@ class ThirdStage : Fragment(), ClientAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val list = generateData(15)
+        //val list = generateData(15)
+        list1.add(ClientItem("Дастан Асанов", "0505555555", "UX/UI","10.02.2021"))
+        list1.add(ClientItem("Эмир Арстанбаев", "0500555555", "JavaScript","12.02.2021"))
+        list1.add(ClientItem("Лина Ким", "04445434323", "Android","20.02.2021"))
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)

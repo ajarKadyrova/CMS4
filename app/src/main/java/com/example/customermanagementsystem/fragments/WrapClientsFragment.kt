@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.customermanagementsystem.R
 import com.example.customermanagementsystem.pagerAdapter.ClientsPagerAdapter
 import com.google.android.material.tabs.TabLayout
+import kotlinx.android.synthetic.main.fragment_clients.*
 import kotlinx.android.synthetic.main.wrap_clients.*
 
 class WrapClientsFragment : Fragment() {
@@ -24,5 +26,9 @@ class WrapClientsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewPager_wrap.adapter = ClientsPagerAdapter(childFragmentManager)
         tabLayout_wrap.setupWithViewPager(viewPager_wrap)
+        fab_clients.setOnClickListener {
+            findNavController().navigate(R.id.action_mainFragment_to_fabBottomSheetFragment)
+
+        }
     }
 }

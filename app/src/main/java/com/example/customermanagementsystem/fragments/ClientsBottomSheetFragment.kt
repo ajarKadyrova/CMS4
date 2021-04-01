@@ -1,10 +1,11 @@
-package com.example.customermanagementsystem
+package com.example.customermanagementsystem.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.customermanagementsystem.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_clients_bottom_sheet.*
 
@@ -24,7 +25,8 @@ class ClientsBottomSheetFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         open_profile_btm_sheet.setOnClickListener {
-            findNavController().navigate(R.id.action_bottomSheetFragment_to_clientProfileFragment)
+            val action = ClientsBottomSheetFragmentDirections.actionBottomSheetFragmentToClientProfileFragment("bottomSheet")
+            findNavController().navigate(action)
         }
     }
 }

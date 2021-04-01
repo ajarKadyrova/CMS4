@@ -1,5 +1,7 @@
 package com.example.customermanagementsystem.adapter
 
+import android.content.res.ColorStateList
+import android.content.res.Resources
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,12 +24,32 @@ class ClientAdapter(private val clientsList: List<ClientItem>,
         )
     }
 
+
     override fun onBindViewHolder(holder: ClientViewHolder, position: Int) {
+        val res: Resources = holder.itemView.getContext().getResources()
         val currentClient = clientsList[position]
 
         holder.name.text = currentClient.name
         holder.number.text = currentClient.phoneNumber
         holder.course.text = currentClient.course
+        if(holder.course.text.equals("Android")){
+            holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.green))
+        }
+        else if(holder.course.text.equals("UX/UI")){
+            holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_purple))
+        }
+        else if(holder.course.text.equals("JavaScript")){
+            holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.yellow))
+        }
+        else if(holder.course.text.equals("PM")){
+            holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_pink))
+        }
+        else if(holder.course.text.equals("Java")){
+            holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_orange))
+        }
+        else if(holder.course.text.equals("Python")){
+            holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_blue))
+        }
         holder.date.text = currentClient.date
     }
 

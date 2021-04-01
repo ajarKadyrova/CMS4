@@ -1,5 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="16dp"
+    app:cardCornerRadius="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/student_group_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:text="Динмухаммед \nАзимбаев"
+            android:textColor="@color/group_text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/payment1_student_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/button_rounded"
+                android:backgroundTint="@color/green"
+                android:paddingLeft="13dp"
+                android:paddingTop="3dp"
+                android:paddingRight="13dp"
+                android:paddingBottom="3dp"
+                android:text="9000"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/payment2_student_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/button_rounded"
+                android:backgroundTint="@color/yellow"
+                android:paddingLeft="13dp"
+                android:paddingTop="3dp"
+                android:paddingRight="13dp"
+                android:paddingBottom="3dp"
+                android:text="900"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/payment3_student_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/button_rounded"
+                android:backgroundTint="@color/red"
+                android:paddingLeft="13dp"
+                android:paddingTop="3dp"
+                android:paddingRight="13dp"
+                android:paddingBottom="3dp"
+                android:text="0"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

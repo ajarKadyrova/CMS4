@@ -1,4 +1,4 @@
-package com.example.customermanagementsystem
+package com.example.customermanagementsystem.activities
 
 import android.os.Bundle
 import android.util.Log
@@ -7,7 +7,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.customermanagementsystem.models.AuthUserResult
+import com.example.customermanagementsystem.R
+import com.example.customermanagementsystem.ViewModel
+import com.example.customermanagementsystem.ViewModelFactory
 import com.example.customermanagementsystem.models.RegistrationModel
 import com.example.customermanagementsystem.repository.Repository
 import kotlinx.android.synthetic.main.alertdialog_card.view.*
@@ -15,7 +17,7 @@ import kotlinx.android.synthetic.main.registration_activity.*
 
 internal class RegistrationActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: RegisterViewModel
+    private lateinit var viewModel: ViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +38,8 @@ internal class RegistrationActivity : AppCompatActivity() {
             }
             val myUser = RegistrationModel( password2,email, name, surname, password1)
             val repository = Repository()
-            val viewModelFactory = RegisterViewModelFactory(repository)
-            viewModel = ViewModelProvider(this, viewModelFactory).get(RegisterViewModel::class.java)
+            val viewModelFactory = ViewModelFactory(repository)
+            viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
             viewModel.registerUser(myUser)
             viewModel.myResponse.observe(this, Observer { response ->
                 if(response.isSuccessful){

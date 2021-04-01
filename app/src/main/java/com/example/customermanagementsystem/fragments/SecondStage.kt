@@ -32,7 +32,10 @@ class SecondStage : Fragment(), ClientAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val list = generateData(15)
+        //val list = generateData(15)
+        list1.add(ClientItem("Лина Ким", "04445434323", "Android","20.02.2021"))
+        list1.add(ClientItem("Ислам Токтогазиев", "0505555555", "Android", "23.10.2021"))
+        list1.add(ClientItem("Дастан Маратов", "0505555555", "JavaScript", "12.01.2021"))
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
@@ -40,22 +43,14 @@ class SecondStage : Fragment(), ClientAdapter.OnItemClickListener {
 
     private fun generateData(size: Int): List<ClientItem> {
         for (i in 0 until size) {
-            val item =
-                ClientItem(
-                    "Кадырова Ажар",
-                    "+996550121212",
-                    "Android",
-                    "12.01.21"
-                )
+            val item = ClientItem("Кадырова Ажар", "+996550121212", "Android", "12.01.21")
             list1 += item
         }
         return list1;
     }
 
     override fun onItemClick(position: Int) {
-        Toast.makeText(context, "Item $position clicked", Toast.LENGTH_SHORT).show()
         val clickedItem: ClientItem = list1[position]
-        clickedItem.name = "Clicked"
         adapter.notifyItemChanged(position)
     }
 }

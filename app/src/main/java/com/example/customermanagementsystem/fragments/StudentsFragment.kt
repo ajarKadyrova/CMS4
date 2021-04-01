@@ -25,13 +25,19 @@ class StudentsFragment : Fragment(), ClientAdapter.OnItemClickListener{
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_clients, container, false)
+        return inflater.inflate(R.layout.fragment_students, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val list = generateData(15)
+        //val list = generateData(15)
+        list1.add(ClientItem("Кадырова Ажар", "+996550121212", "Android", "12.01.21"))
+        list1.add(ClientItem("Айсулуу Арстанбаева","0505555555","Python","25.03.2021"))
+        list1.add(ClientItem("Аида Исмаилова", "0505555555", "PM", "10.03.2021"))
+        list1.add(ClientItem("Дастан Асанов", "0505555555", "UX/UI","10.02.2021"))
+        list1.add(ClientItem("Эмир Арстанбаев", "0500555555", "JavaScript","12.02.2021"))
+        list1.add(ClientItem("Лина Ким", "04445434323", "Android","20.02.2021"))
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
@@ -42,7 +48,7 @@ class StudentsFragment : Fragment(), ClientAdapter.OnItemClickListener{
             val item = ClientItem(
                 "Турсунбеков Камиль",
                 "+996550101010",
-                "#Python",
+                "Python",
                 "12.01.2021"
             )
             list1 += item
@@ -50,9 +56,7 @@ class StudentsFragment : Fragment(), ClientAdapter.OnItemClickListener{
         return list1;
     }
     override fun onItemClick(position: Int) {
-        Toast.makeText(context, "Item $position clicked", Toast.LENGTH_SHORT).show()
         val clickedItem: ClientItem = list1[position]
-        clickedItem.name = "Clicked"
         adapter.notifyItemChanged(position)
     }
 }

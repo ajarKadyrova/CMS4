@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
     app:cardCornerRadius="16dp">
 
     <RelativeLayout
@@ -59,7 +61,10 @@
                 android:layout_marginTop="15dp"
                 android:background="@drawable/button_rounded"
                 android:backgroundTint="#6877FF"
-                android:padding="8dp"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
                 android:text="Python"
                 android:textColor="@color/white" />
 

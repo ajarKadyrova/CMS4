@@ -9,14 +9,16 @@ import com.example.customermanagementsystem.R
 import com.example.customermanagementsystem.models.GroupItem
 import kotlinx.android.synthetic.main.group_view.view.*
 
-class GroupAdapter(private val groupsList: List<GroupItem>) : RecyclerView.Adapter<GroupAdapter.GroupViewHolder>() {
+class GroupAdapter(private val groupsList: List<GroupItem>,
+                   private val listener: OnItemClickListener) :
+        RecyclerView.Adapter<GroupAdapter.GroupViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.group_view,
-            parent, false)
+                R.layout.group_view,
+                parent, false)
         return GroupViewHolder(
-            itemView
+                itemView
         )
     }
 
@@ -31,11 +33,26 @@ class GroupAdapter(private val groupsList: List<GroupItem>) : RecyclerView.Adapt
 
     override fun getItemCount() = groupsList.size
 
-    class GroupViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val teacher_name : TextView = itemView.teacher_name_tb
-        val start_date : TextView = itemView.time_tb
-        val schedule : TextView = itemView.schedule_tb
-        val students_num : TextView = itemView.students_num_tb
+    inner class GroupViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
+            View.OnClickListener{
+        val teacher_name: TextView = itemView.teacher_name_tb
+        val start_date: TextView = itemView.time_tb
+        val schedule: TextView = itemView.schedule_tb
+        val students_num: TextView = itemView.students_num_tb
 
+        init {
+            itemView.setOnClickListener(this)
+        }
+
+        override fun onClick(v: View?) {
+            val position: Int = adapterPosition
+            if (position != RecyclerView.NO_POSITION) {
+                listener.onItemClick(position)
+            }
+        }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
     }
 }

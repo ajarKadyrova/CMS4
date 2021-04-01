@@ -1,13 +1,10 @@
-package com.example.customermanagementsystem
+package com.example.customermanagementsystem.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import com.example.customermanagementsystem.fragments.GroupsFragment
-import com.example.customermanagementsystem.fragments.WrapClientsFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.customermanagementsystem.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 

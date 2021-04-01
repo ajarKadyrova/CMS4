@@ -1,7 +1,8 @@
 package com.example.customermanagementsystem.models
 
 data class AuthUserResult(
-    val details: String,
-    val result: String,
-    val resultCode: String
+    val accessToken: String,
+    val refreshExpirationTime: String,
+    val refreshToken: String,
+    val tokenExpirationTime: String
 )

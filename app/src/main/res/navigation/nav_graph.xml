@@ -9,18 +9,24 @@
         android:id="@+id/mainFragment"
         android:name="com.example.customermanagementsystem.fragments.WrapClientsFragment"
         android:label="WrapClientsFragment">
-        <argument
-            android:name="token"
-            android:defaultValue="0"
-            app:argType="string" />
         <action
             android:id="@+id/action_mainFragment_to_bottomSheetFragment"
             app:destination="@id/bottomSheetFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_fabBottomSheetFragment"
+            app:destination="@id/fabBottomSheetFragment" />
     </fragment>
     <fragment
         android:id="@+id/groupsFragment"
         android:name="com.example.customermanagementsystem.fragments.GroupsFragment"
-        android:label="GroupsFragment" />
+        android:label="GroupsFragment">
+        <action
+            android:id="@+id/action_groupsFragment_to_wrapGroupDataFragment"
+            app:destination="@id/wrapGroupDataFragment" />
+        <action
+            android:id="@+id/action_groupsFragment_to_newGroupBottomSheetFragment"
+            app:destination="@id/newGroupBottomSheetFragment" />
+    </fragment>
     <fragment
         android:id="@+id/studentsFragment"
         android:name="com.example.customermanagementsystem.fragments.StudentsFragment"
@@ -31,12 +37,76 @@
         android:label="ScheduleFragment" />
     <dialog
         android:id="@+id/bottomSheetFragment"
-        android:name="com.example.customermanagementsystem.BottomSheetFragment"
+        android:name="com.example.customermanagementsystem.fragments.ClientsBottomSheetFragment"
         android:label="fragment_bottom_sheet"
-        tools:layout="@layout/fragment_bottom_sheet" >
+        tools:layout="@layout/fragment_clients_bottom_sheet" >
         <action
             android:id="@+id/action_bottomSheetFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_bottomSheetFragment_to_clientProfileFragment"
+            app:destination="@id/clientProfileFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/clientProfileFragment"
+        android:name="com.example.customermanagementsystem.fragments.ClientProfileFragment"
+        android:label="fragment_client_profile"
+        tools:layout="@layout/fragment_client_profile" >
+        <argument
+            android:name="prev_fragment"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/wrapGroupDataFragment"
+        android:name="com.example.customermanagementsystem.fragments.WrapGroupDataFragment"
+        android:label="WrapGroupDataFragment" >
+        <action
+            android:id="@+id/action_wrapGroupDataFragment_to_studentAddBottomSheetFragment"
+            app:destination="@id/studentAddBottomSheetFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/fabBottomSheetFragment"
+        android:name="com.example.customermanagementsystem.fragments.FabBottomSheetFragment"
+        android:label="FabBottomSheetFragment" >
+        <action
+            android:id="@+id/action_fabBottomSheetFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_fabBottomSheetFragment_to_newStatusFragment"
+            app:destination="@id/newStatusFragment" />
+        <action
+            android:id="@+id/action_fabBottomSheetFragment_to_clientProfileFragment"
+            app:destination="@id/clientProfileFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/newStatusFragment"
+        android:name="com.example.customermanagementsystem.fragments.NewStatusFragment"
+        android:label="fragment_new_status"
+        tools:layout="@layout/fragment_new_status" >
+        <action
+            android:id="@+id/action_newStatusFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/newGroupBottomSheetFragment"
+        android:name="com.example.customermanagementsystem.fragments.NewGroupBottomSheetFragment"
+        android:label="fragment_new_group_bottom_sheet"
+        tools:layout="@layout/fragment_new_group_bottom_sheet" >
+        <action
+            android:id="@+id/action_newGroupBottomSheetFragment_to_groupDataFragment"
+            app:destination="@id/groupDataFragment" />
+        <action
+            android:id="@+id/action_newGroupBottomSheetFragment_to_groupsFragment"
+            app:destination="@id/groupsFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/groupDataFragment"
+        android:name="com.example.customermanagementsystem.fragments.GroupDataFragment"
+        android:label="GroupDataFragment" />
+    <dialog
+        android:id="@+id/studentAddBottomSheetFragment"
+        android:name="com.example.customermanagementsystem.fragments.StudentAddBottomSheetFragment"
+        android:label="fragment_student_add_bottom_sheet"
+        tools:layout="@layout/fragment_student_add_bottom_sheet" />
 
 </navigation>
