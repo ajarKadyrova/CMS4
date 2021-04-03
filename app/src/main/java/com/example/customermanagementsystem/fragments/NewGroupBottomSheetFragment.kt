@@ -26,7 +26,8 @@ class NewGroupBottomSheetFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         create_group_btn_btm.setOnClickListener {
-            findNavController().navigate(R.id.action_newGroupBottomSheetFragment_to_groupDataFragment)
+            val action = NewGroupBottomSheetFragmentDirections.actionNewGroupBottomSheetFragmentToGroupDataFragment("newGroup")
+            findNavController().navigate(action)
         }
     }
 }

@@ -27,6 +27,6 @@ class ClientsPagerAdapter (fragmentManager: FragmentManager): FragmentPagerAdapt
         }
     }
     override fun getCount(): Int {
-        return 4
+        return 5
     }
 }

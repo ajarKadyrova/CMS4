@@ -17,4 +17,8 @@ class Repository {
     suspend fun createClient(branchId: Int):Response<ClientDTO>{
         return RetrofitInstance.api.createClient(branchId)
     }
+
+    suspend fun getAllGroups(branchId: Int):Response<List<GroupDTO>>{
+        return RetrofitInstance.api.getAllGroups(branchId)
+    }
 }

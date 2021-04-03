@@ -152,7 +152,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginStart="16dp"/>
         <RadioGroup
-            android:id="@+id/radioGroup"
+            android:id="@+id/radioGroup_clients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -160,22 +160,21 @@
             android:layout_marginStart="16dp">
 
             <RadioButton
-                android:id="@+id/have_client_rbtn"
+                android:id="@+id/hasnot_client_rbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/have_laptop" />
+                android:text="@string/doesnt_have_laptop" />
 
             <RadioButton
-                android:id="@+id/radio_button_2"
+                android:id="@+id/has_client_rbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/doesnt_have_laptop"
+                android:text="@string/have_laptop"
                 android:layout_marginLeft="25dp"/>
 
         </RadioGroup>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/source_client"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -185,12 +184,12 @@
             android:layout_marginEnd="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/source_client"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/comment_client"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -201,6 +200,7 @@
             android:layout_marginEnd="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/comment_client"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>

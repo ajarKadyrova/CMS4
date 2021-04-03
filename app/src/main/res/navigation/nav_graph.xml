@@ -102,7 +102,11 @@
     <fragment
         android:id="@+id/groupDataFragment"
         android:name="com.example.customermanagementsystem.fragments.GroupDataFragment"
-        android:label="GroupDataFragment" />
+        android:label="GroupDataFragment" >
+        <argument
+            android:name="prevFragmentGroup"
+            app:argType="string" />
+    </fragment>
     <dialog
         android:id="@+id/studentAddBottomSheetFragment"
         android:name="com.example.customermanagementsystem.fragments.StudentAddBottomSheetFragment"

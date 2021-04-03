@@ -1,16 +1,16 @@
 package com.example.customermanagementsystem.models
 
 data class ClientDTO(
-    val CourseDTO: CourseDTO,
-    val boardsDTO: BoardsDTO,
-    val branchDTO: BranchDTO,
-    val clientIP: String,
-    val comments: String,
-    val email: String,
-    val hasLaptop: Boolean,
-    val id: Int,
-    val name: String,
-    val phoneNumber: String,
-    val utmSource: String,
-    val ymClientID: String
+        val name: String,
+        val email: String,
+        val phoneNumber: String,
+        val wantsCourse: CourseDTO,
+        val boards: BoardsDTO,
+        val hasLaptop: Boolean,
+        val utmSource: String,
+        val comments: String,
+        val branch: BranchDTO,
+        val clientIP: String,
+        val id: Int,
+        val ymClientID: String
 )

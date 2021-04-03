@@ -3,6 +3,7 @@ package com.example.customermanagementsystem.api
 import com.example.customermanagementsystem.models.*
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -21,4 +22,9 @@ interface Api {
     suspend fun createClient(
         @Query("branchID") branchId: Int
     ):Response<ClientDTO>
+
+    @GET("api/v1/groups")
+    suspend fun getAllGroups(
+        @Query("branchID") branchId: Int
+    ):Response<List<GroupDTO>>
 }

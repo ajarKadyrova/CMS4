@@ -9,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.customermanagementsystem.R
 import com.example.customermanagementsystem.adapter.GroupStudentsAdapter
-import com.example.customermanagementsystem.models.GroupItem
 import com.example.customermanagementsystem.models.GroupStudents
 import kotlinx.android.synthetic.main.fragment_group_students.*
 
