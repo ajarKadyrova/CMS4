@@ -21,4 +21,8 @@ class Repository {
     suspend fun getAllGroups(branchId: Int):Response<List<GroupDTO>>{
         return RetrofitInstance.api.getAllGroups(branchId)
     }
+
+    suspend fun getAllStudents(branchId: Int):Response<List<StudentsDTO>>{
+        return RetrofitInstance.api.getAllStudents(branchId)
+    }
 }

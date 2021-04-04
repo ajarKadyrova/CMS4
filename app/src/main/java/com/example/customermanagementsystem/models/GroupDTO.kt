@@ -1,7 +1,7 @@
 package com.example.customermanagementsystem.models
 
 class GroupDTO (
-    val amount: Number,
+    val amount: Long,
     val branch:BranchDTO,
     val course: CourseDTO,
     val startDate: String,

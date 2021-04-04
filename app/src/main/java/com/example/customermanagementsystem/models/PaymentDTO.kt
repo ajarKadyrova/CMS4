@@ -1,8 +1,8 @@
 package com.example.customermanagementsystem.models
 
 class PaymentDTO (
-    val amount: Number,
-    val id: Int,
+    val amount: Long,
+    val id: Long,
     val startDate: String,
     val endDate: String
 )

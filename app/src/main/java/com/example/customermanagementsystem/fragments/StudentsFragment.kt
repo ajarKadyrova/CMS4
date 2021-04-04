@@ -1,21 +1,30 @@
 package com.example.customermanagementsystem.fragments
 
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.customermanagementsystem.adapter.ClientAdapter
-import com.example.customermanagementsystem.models.ClientItem
 import com.example.customermanagementsystem.R
-import kotlinx.android.synthetic.main.fragment_clients.*
+import com.example.customermanagementsystem.ViewModel
+import com.example.customermanagementsystem.ViewModelFactory
+import com.example.customermanagementsystem.adapter.StudentsAdapter
+import com.example.customermanagementsystem.models.StudentsDTO
+import com.example.customermanagementsystem.repository.Repository
+import kotlinx.android.synthetic.main.fragment_students.*
 
-class StudentsFragment : Fragment(), ClientAdapter.OnItemClickListener{
+class StudentsFragment : Fragment(), StudentsAdapter.OnItemClickListener{
 
-    val list1 = ArrayList<ClientItem>()
-    private val adapter = ClientAdapter(list1, this)
+    private lateinit var viewModel: ViewModel
+    lateinit var sharedPreferences: SharedPreferences
+    private var studentsList: List<StudentsDTO> = ArrayList<StudentsDTO>()
+    private val adapter by lazy { StudentsAdapter(studentsList, this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,32 +40,25 @@ class StudentsFragment : Fragment(), ClientAdapter.OnItemClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //val list = generateData(15)
-        list1.add(ClientItem("Кадырова Ажар", "+996550121212", "Android", "12.01.21"))
-        list1.add(ClientItem("Айсулуу Арстанбаева","0505555555","Python","25.03.2021"))
-        list1.add(ClientItem("Аида Исмаилова", "0505555555", "PM", "10.03.2021"))
-        list1.add(ClientItem("Дастан Асанов", "0505555555", "UX/UI","10.02.2021"))
-        list1.add(ClientItem("Эмир Арстанбаев", "0500555555", "JavaScript","12.02.2021"))
-        list1.add(ClientItem("Лина Ким", "04445434323", "Android","20.02.2021"))
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.setHasFixedSize(true)
+        val repository = Repository()
+        val viewModelFactory = ViewModelFactory(repository)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
+        viewModel.getAllStudents(1)
+        viewModel.allStudents.observe(viewLifecycleOwner, Observer { response ->
+            response.body()?.let { adapter.setData(it) }
+            recyclerView_students.adapter = adapter
+            recyclerView_students.layoutManager = LinearLayoutManager(context)
+            if(response.isSuccessful){
+                //response.body()?.let { adapter.setData(it) }
+            } else {
+                Toast.makeText(context, resources.getString(R.string.error_loading), Toast.LENGTH_LONG).show()
+                Log.d("Students", "body + " + response.body().toString())
+            }
+        })
     }
 
-    private fun generateData(size: Int): List <ClientItem> {
-        for (i in 0 until size){
-            val item = ClientItem(
-                "Турсунбеков Камиль",
-                "+996550101010",
-                "Python",
-                "12.01.2021"
-            )
-            list1 += item
-        }
-        return list1;
-    }
     override fun onItemClick(position: Int) {
-        val clickedItem: ClientItem = list1[position]
+        val clickedItem: StudentsDTO = studentsList[position]
         adapter.notifyItemChanged(position)
     }
 }

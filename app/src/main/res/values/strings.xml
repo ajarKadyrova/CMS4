@@ -60,4 +60,5 @@
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="no_internet">Нет интернет соединения</string>
+    <string name="error_loading">Что-то пошло не так</string>
 </resources>

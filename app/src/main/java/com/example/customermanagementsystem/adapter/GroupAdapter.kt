@@ -9,17 +9,13 @@ import com.example.customermanagementsystem.R
 import com.example.customermanagementsystem.models.GroupDTO
 import kotlinx.android.synthetic.main.group_view.view.*
 
-class GroupAdapter(private val groupsList: List<GroupDTO>,
+class GroupAdapter(private var groupsList: List<GroupDTO>,
                    private val listener: OnItemClickListener) :
         RecyclerView.Adapter<GroupAdapter.GroupViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(
-                R.layout.group_view,
-                parent, false)
-        return GroupViewHolder(
-                itemView
-        )
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.group_view, parent, false)
+        return GroupViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: GroupViewHolder, position: Int) {
@@ -33,6 +29,11 @@ class GroupAdapter(private val groupsList: List<GroupDTO>,
     }
 
     override fun getItemCount() = groupsList.size
+
+    fun setData(newList: List<GroupDTO>){
+        groupsList = newList
+        notifyDataSetChanged()
+    }
 
     inner class GroupViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
             View.OnClickListener{

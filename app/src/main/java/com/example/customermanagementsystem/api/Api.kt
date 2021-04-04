@@ -27,4 +27,11 @@ interface Api {
     suspend fun getAllGroups(
         @Query("branchID") branchId: Int
     ):Response<List<GroupDTO>>
+
+    @GET("api/v1/students")
+    suspend fun getAllStudents(
+            @Query("branchID") branchId: Int
+    ):Response<List<StudentsDTO>>
+
+
 }
