@@ -10,7 +10,6 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/course_group"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,12 +19,12 @@
             android:layout_marginEnd="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/course_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/group_group"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,12 +34,12 @@
             android:layout_marginEnd="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/group_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/teacher_group"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,13 +49,13 @@
             android:layout_marginEnd="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/teacher_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/schedule_group"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/schedule"
@@ -64,14 +63,14 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp">
 
-            <AutoCompleteTextView
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/schedule_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/time_group"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,13 +80,13 @@
             android:layout_marginEnd="16dp">
 
             <AutoCompleteTextView
+                android:id="@+id/time_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/start_date_groups"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -99,13 +98,12 @@
             app:endIconDrawable="@drawable/calendar">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/start_date_groups_tv"
+                android:id="@+id/start_date_groups"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/end_date_groups"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -117,13 +115,12 @@
             app:endIconDrawable="@drawable/calendar">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/end_date_groups_tv"
+                android:id="@+id/end_date_groups"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/payment_groups"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -133,12 +130,12 @@
             android:layout_marginEnd="16dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/payment_groups"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cabinet_group"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -148,6 +145,7 @@
             android:layout_marginEnd="16dp">
 
             <AutoCompleteTextView
+                android:id="@+id/cabinet_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="none" />

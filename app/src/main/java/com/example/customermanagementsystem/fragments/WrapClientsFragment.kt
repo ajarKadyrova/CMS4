@@ -28,7 +28,6 @@ class WrapClientsFragment : Fragment() {
         tabLayout_wrap.setupWithViewPager(viewPager_wrap)
         fab_clients.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_fabBottomSheetFragment)
-
         }
     }
 }

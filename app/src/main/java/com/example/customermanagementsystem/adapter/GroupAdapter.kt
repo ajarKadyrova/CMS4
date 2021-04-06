@@ -23,9 +23,11 @@ class GroupAdapter(private var groupsList: List<GroupDTO>,
 
         holder.teacher_name.text = currentClient.teacher.name
         holder.course.text = currentClient.course.name
-        holder.schedule.text = currentClient.timeTable.daysOfWeeks.toString()
+        for(i in currentClient.timeTable.daysOfWeeks){
+            holder.schedule.text = i + holder.schedule.text + " "
+        }
         holder.start_date.text = currentClient.startDate
-        holder.students_num.text = currentClient.numberOfStudents.toString()
+        holder.students_num.text = currentClient.numberOfStudents.toString() + " учеников"
     }
 
     override fun getItemCount() = groupsList.size
@@ -50,12 +52,12 @@ class GroupAdapter(private var groupsList: List<GroupDTO>,
         override fun onClick(v: View?) {
             val position: Int = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
+                listener.onItemClick(position, groupsList.get(position))
             }
         }
     }
 
     interface OnItemClickListener {
-        fun onItemClick(position: Int)
+        fun onItemClick(position: Int, groupDTO: GroupDTO)
     }
 }

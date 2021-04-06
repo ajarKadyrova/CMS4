@@ -1,6 +1,8 @@
 package com.example.customermanagementsystem.fragments
 
+import android.content.Intent
 import android.content.SharedPreferences
+import android.nfc.NfcAdapter.EXTRA_ID
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Log
@@ -44,11 +46,10 @@ class GroupsFragment : Fragment(), GroupAdapter.OnItemClickListener {
         viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
         viewModel.getAllGroups(1)
         viewModel.allGroups.observe(viewLifecycleOwner, Observer { response ->
-            response.body()?.let { adapter.setData(it) }
-            recyclerView_groups.adapter = adapter
-            recyclerView_groups.layoutManager = LinearLayoutManager(context)
             if(response.isSuccessful){
-                //response.body()?.let { adapter.setData(it) }
+                response.body()?.let { adapter.setData(it) }
+                recyclerView_groups.adapter = adapter
+                recyclerView_groups.layoutManager = LinearLayoutManager(context)
             } else {
                 Toast.makeText(context, resources.getString(R.string.error_loading), Toast.LENGTH_LONG).show()
                 Log.d("Groups", "body + " + response.body().toString())
@@ -60,9 +61,9 @@ class GroupsFragment : Fragment(), GroupAdapter.OnItemClickListener {
         }
     }
 
-    override fun onItemClick(position: Int) {
-        val clickedItem: GroupDTO = groupsList[position]
-        adapter.notifyItemChanged(position)
-        findNavController().navigate(R.id.action_groupsFragment_to_wrapGroupDataFragment)
+    override fun onItemClick(position: Int, groupDTO: GroupDTO) {
+        val id = groupDTO.id
+        val action = GroupsFragmentDirections.actionGroupsFragmentToWrapGroupDataFragment(id)
+        findNavController().navigate(action)
     }
 }

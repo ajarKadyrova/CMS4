@@ -7,7 +7,7 @@ class GroupDTO (
     val startDate: String,
     val endDate: String,
     val groupName: String,
-    val id: Int,
+    val id: Long,
     val numberOfStudents: Int,
     val students: List<StudentsDTO>,
     val teacher: TeacherDTO,

@@ -42,8 +42,10 @@ class ClientProfileFragment : Fragment() {
         val prevFragment = args.prevFragment
         if (prevFragment == "fab") {
             edit_btn_client.visibility = View.GONE
+
         } else if (prevFragment == "bottomSheet") {
             edit_btn_client.visibility = View.VISIBLE
+            setView()
         }
         save_btn_client.setOnClickListener {
             if (prevFragment == "fab") {
@@ -52,13 +54,16 @@ class ClientProfileFragment : Fragment() {
         }
     }
 
+    private fun setView() {
+    }
+
     private fun createNewUser() {
+
         val surname = surname_client.text.toString()
         val name = name_client.text.toString()
         val patronymic = patronymic_client.text.toString()
         val email = email_client.text.toString()
         val phone = phone_client.text.toString()
-        val teacher = teacher_client.text.toString()
         val course = course_client.text.toString()
         val status = "Новый"
         var hasLaptop = false
@@ -70,24 +75,16 @@ class ClientProfileFragment : Fragment() {
         }
         val source = source_client.text.toString()
         val comment = comment_client.text.toString()
-        //newClient = ClientDTO(name,email, phone, teacher, course, status, hasLaptop, source, comment)
+        //val newClient = ClientDTO(name, surname, patronymic, email, phone, , hasLaptop, source, comment)
         val repository = Repository()
         val viewModelFactory = ViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
-        //viewModel.createClient(newClient)
+        //viewModel.createClient( 1, newClient)
         viewModel.myAuthResponse.observe(viewLifecycleOwner, Observer { response ->
             if (response.isSuccessful) {
                 Log.d("AuthD", response.body().toString())
                 Log.d("AuthD", response.code().toString())
                 Log.d("AuthD", response.message())
-                /*val sharedPreferences: SharedPreferences = getSharedPreferences("token", Context.MODE_PRIVATE)
-                val editor: SharedPreferences.Editor = sharedPreferences.edit()
-                editor.apply {
-                    putString("token", response.body()?.accessToken)
-                }.apply()
-                Intent(this, MainActivity::class.java).also {
-                    startActivity(it)
-                }*/
             } else if (!response.isSuccessful) {
                 Log.d("AuthD", response.body().toString())
                 Log.d("AuthD", response.code().toString())

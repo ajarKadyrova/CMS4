@@ -2,10 +2,7 @@ package com.example.customermanagementsystem.api
 
 import com.example.customermanagementsystem.models.*
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface Api {
     @POST("api/v1/auth/sign-up")
@@ -20,8 +17,9 @@ interface Api {
 
     @POST("api/v1/clients")
     suspend fun createClient(
-        @Query("branchID") branchId: Int
-    ):Response<ClientDTO>
+        @Query("branchID") branchId: Int,
+        @Body newClient: ClientDTO
+    ):Response<String>
 
     @GET("api/v1/groups")
     suspend fun getAllGroups(
@@ -33,5 +31,9 @@ interface Api {
             @Query("branchID") branchId: Int
     ):Response<List<StudentsDTO>>
 
-
+    @GET("api/v1/groups/{id}")
+    suspend fun getGroup(
+            @Path("id") id: Long,
+            @Query("branchID") branchId: Int
+    ): Response<GroupDTO>
 }

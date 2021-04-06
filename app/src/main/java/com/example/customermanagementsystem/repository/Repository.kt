@@ -14,8 +14,8 @@ class Repository {
         return RetrofitInstance.api.authUser(authUser)
     }
 
-    suspend fun createClient(branchId: Int):Response<ClientDTO>{
-        return RetrofitInstance.api.createClient(branchId)
+    suspend fun createClient(branchId: Int, newClient: ClientDTO):Response<String>{
+        return RetrofitInstance.api.createClient(branchId, newClient)
     }
 
     suspend fun getAllGroups(branchId: Int):Response<List<GroupDTO>>{
@@ -24,5 +24,9 @@ class Repository {
 
     suspend fun getAllStudents(branchId: Int):Response<List<StudentsDTO>>{
         return RetrofitInstance.api.getAllStudents(branchId)
+    }
+
+    suspend fun getGroup(branchId: Int, id: Long):Response<GroupDTO>{
+        return RetrofitInstance.api.getGroup(id, branchId)
     }
 }

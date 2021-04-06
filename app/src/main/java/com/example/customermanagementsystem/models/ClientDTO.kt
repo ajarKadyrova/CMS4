@@ -1,7 +1,9 @@
 package com.example.customermanagementsystem.models
 
 data class ClientDTO(
-        val name: String,
+        val firstName: String,
+        val lastName: String,
+        val patronymic: String,
         val email: String,
         val phoneNumber: String,
         val wantsCourse: CourseDTO,

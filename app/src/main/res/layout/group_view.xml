@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="16dp"
     android:layout_marginStart="16dp"
     android:layout_marginEnd="16dp"
@@ -32,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@id/hat_image"
                 android:layout_marginLeft="8dp"
-                android:text="Шевченко Филипп"
+                tools:text="Шевченко Филипп"
                 android:textColor="@color/group_text"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -65,7 +66,7 @@
                 android:paddingLeft="8dp"
                 android:paddingTop="3dp"
                 android:paddingBottom="3dp"
-                android:text="Python"
+                tools:text="Python"
                 android:textColor="@color/white" />
 
             <TextView
@@ -73,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:text="Вт/Чт/Сб"
+                tools:text="Вт/Чт/Сб"
                 android:textColor="@color/group_text" />
 
             <TextView
@@ -81,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:text="11:30-12:30"
+                tools:text="11:30-12:30"
                 android:textColor="@color/group_text" />
 
             <TextView
@@ -89,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:text="15 учеников"
+                tools:text="15 учеников"
                 android:textColor="@color/group_text" />
         </LinearLayout>
 
@@ -98,7 +99,7 @@
             android:layout_height="wrap_content"
             android:layout_alignRight="@id/body_layout"
             android:layout_alignBottom="@id/body_layout"
-            android:text="01.02.21"
+            tools:text="01.02.21"
             android:textColor="@color/group_text" />
     </RelativeLayout>
 
