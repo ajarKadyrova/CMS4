@@ -16,6 +16,9 @@ class ViewModel(private val repository : Repository) : ViewModel(){
     val allGroups: MutableLiveData<Response<List<GroupDTO>>> = MutableLiveData()
     val allStudents: MutableLiveData<Response<List<StudentsDTO>>> = MutableLiveData()
     val myGroup: MutableLiveData<Response<GroupDTO>> = MutableLiveData()
+    val allTeachers: MutableLiveData<Response<List<TeacherDTO>>> = MutableLiveData()
+    val allRooms: MutableLiveData<Response<List<RoomDTO>>> = MutableLiveData()
+    val allCourses: MutableLiveData<Response<List<CourseDTO>>> = MutableLiveData()
 
     fun registerUser(user: RegistrationModel){
         viewModelScope.launch {
@@ -56,6 +59,27 @@ class ViewModel(private val repository : Repository) : ViewModel(){
         viewModelScope.launch {
             val response = repository.getGroup(branchId, id)
             myGroup.value = response
+        }
+    }
+
+    fun getAllTeachers(branchId: Int){
+        viewModelScope.launch {
+            val response = repository.getAllTeachers(branchId)
+            allTeachers.value = response
+        }
+    }
+
+    fun getAllRooms(branchId: Int){
+        viewModelScope.launch {
+            val response = repository.getAllRooms(branchId)
+            allRooms.value = response
+        }
+    }
+
+    fun getAllCourses(branchId: Int){
+        viewModelScope.launch {
+            val response = repository.getAllCourses(branchId)
+            allCourses.value = response
         }
     }
 }

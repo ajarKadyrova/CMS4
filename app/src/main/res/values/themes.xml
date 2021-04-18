@@ -27,4 +27,11 @@
     <style name="TabBar" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">10sp</item>
     </style>
+
+    <style name="chipsStyle" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_bg</item>
+        <item name="android:textColor">@color/chip_text</item>
+        <item name="checkedIconTint">@color/white</item>
+        <item name="rippleColor">@color/whiteAlpha</item>
+    </style>
 </resources>

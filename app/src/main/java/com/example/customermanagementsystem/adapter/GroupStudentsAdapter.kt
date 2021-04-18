@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.customermanagementsystem.R
-import com.example.customermanagementsystem.models.GroupStudents
+import com.example.customermanagementsystem.models.GroupDTO
 import kotlinx.android.synthetic.main.group_students_view.view.*
 
-class GroupStudentsAdapter(private val studentsList:List<GroupStudents>) :RecyclerView.Adapter<GroupStudentsAdapter.GroupStudentsViewHolder>(){
+class GroupStudentsAdapter(private var studentsList:List<GroupDTO>) :RecyclerView.Adapter<GroupStudentsAdapter.GroupStudentsViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupStudentsViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.group_students_view, parent, false)
@@ -19,13 +19,18 @@ class GroupStudentsAdapter(private val studentsList:List<GroupStudents>) :Recycl
     override fun onBindViewHolder(holder: GroupStudentsViewHolder, position: Int) {
         val currentStudent = studentsList[position]
 
-        holder.name.text = currentStudent.name
-        holder.payment1.text = currentStudent.payment1.toString()
-        holder.payment2.text = currentStudent.payment2.toString()
-        holder.payment3.text = currentStudent.payment3.toString()
+        //holder.name.text = currentStudent.students.
+        //holder.payment1.text = currentStudent.payment1.toString()
+        //holder.payment2.text = currentStudent.payment2.toString()
+        //holder.payment3.text = currentStudent.payment3.toString()
     }
 
     override fun getItemCount() = studentsList.size
+
+    fun setData(newList: List<GroupDTO>){
+        studentsList = newList
+        notifyDataSetChanged()
+    }
 
     class GroupStudentsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val name :TextView = itemView.student_group_name

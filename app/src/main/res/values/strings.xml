@@ -61,4 +61,16 @@
     <string name="no">Нет</string>
     <string name="no_internet">Нет интернет соединения</string>
     <string name="error_loading">Что-то пошло не так</string>
+    <string name="choose_date">Выберите дату</string>
+    <string name="find">Найти</string>
+    <string name="error_occured">Возникла ошибка. Попробуйте позднее</string>
+    <string-array name="week_days">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресенье</item>
+    </string-array>
 </resources>

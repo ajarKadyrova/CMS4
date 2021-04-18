@@ -26,9 +26,6 @@
         <action
             android:id="@+id/action_groupsFragment_to_newGroupBottomSheetFragment"
             app:destination="@id/newGroupBottomSheetFragment" />
-        <action
-            android:id="@+id/action_groupsFragment_to_groupDataFragment"
-            app:destination="@id/groupDataFragment" />
     </fragment>
     <fragment
         android:id="@+id/studentsFragment"
@@ -66,12 +63,6 @@
         <action
             android:id="@+id/action_wrapGroupDataFragment_to_studentAddBottomSheetFragment"
             app:destination="@id/studentAddBottomSheetFragment" />
-        <argument
-            android:name="groupId"
-            app:argType="long" />
-        <action
-            android:id="@+id/action_wrapGroupDataFragment_to_groupDataFragment"
-            app:destination="@id/groupDataFragment" />
     </fragment>
     <dialog
         android:id="@+id/fabBottomSheetFragment"
@@ -112,12 +103,6 @@
         android:id="@+id/groupDataFragment"
         android:name="com.example.customermanagementsystem.fragments.GroupDataFragment"
         android:label="GroupDataFragment" >
-        <argument
-            android:name="prevFragmentGroup"
-            app:argType="string" />
-        <argument
-            android:name="groupId"
-            app:argType="long"/>
         <action
             android:id="@+id/action_groupDataFragment_to_groupsFragment"
             app:destination="@id/groupsFragment" />

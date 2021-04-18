@@ -1,8 +1,7 @@
 package com.example.customermanagementsystem.fragments
 
-import android.content.Intent
+import android.content.Context
 import android.content.SharedPreferences
-import android.nfc.NfcAdapter.EXTRA_ID
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.util.Log
@@ -28,11 +27,15 @@ class GroupsFragment : Fragment(), GroupAdapter.OnItemClickListener {
 
     private lateinit var viewModel: ViewModel
     lateinit var sharedPreferences: SharedPreferences
-    private var groupsList: List<GroupDTO> = ArrayList<GroupDTO>()
+    private var groupsList: List<GroupDTO> = ArrayList()
     private val adapter by lazy { GroupAdapter(groupsList, this)}
+    private var groupId: Long = 0
+    private var instance: GroupsFragment? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_groups, container, false)
+        val view =  inflater.inflate(R.layout.fragment_groups, container, false)
+        instance = this
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -62,8 +65,18 @@ class GroupsFragment : Fragment(), GroupAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(position: Int, groupDTO: GroupDTO) {
-        val id = groupDTO.id
-        val action = GroupsFragmentDirections.actionGroupsFragmentToWrapGroupDataFragment(id)
-        findNavController().navigate(action)
+        groupId = groupDTO.id
+        val sharedPrefs: SharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        val editor = sharedPrefs.edit()
+        editor.putLong("groupId", groupId).apply()
+        findNavController().navigate(R.id.action_groupsFragment_to_wrapGroupDataFragment)
+    }
+
+    public fun getInstanceGroup(): GroupsFragment? {
+        return instance
+    }
+
+    public fun getGroupId(): Long {
+        return groupId
     }
 }

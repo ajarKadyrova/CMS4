@@ -29,4 +29,16 @@ class Repository {
     suspend fun getGroup(branchId: Int, id: Long):Response<GroupDTO>{
         return RetrofitInstance.api.getGroup(id, branchId)
     }
+
+    suspend fun getAllTeachers(branchId: Int):Response<List<TeacherDTO>>{
+        return RetrofitInstance.api.getAllTeachers(branchId)
+    }
+
+    suspend fun getAllRooms(branchId: Int):Response<List<RoomDTO>>{
+        return RetrofitInstance.api.getAllRooms(branchId)
+    }
+
+    suspend fun getAllCourses(branchId: Int):Response<List<CourseDTO>>{
+        return RetrofitInstance.api.getAllCourses(branchId)
+    }
 }

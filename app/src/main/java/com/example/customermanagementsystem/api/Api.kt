@@ -36,4 +36,19 @@ interface Api {
             @Path("id") id: Long,
             @Query("branchID") branchId: Int
     ): Response<GroupDTO>
+
+    @GET("api/v1/teachers")
+    suspend fun getAllTeachers(
+            @Query("branchID") branchId: Int
+    ): Response<List<TeacherDTO>>
+
+    @GET("api/v1/rooms")
+    suspend fun getAllRooms(
+            @Query("branchID") branchId: Int
+    ): Response<List<RoomDTO>>
+
+    @GET("api/v1/courses")
+    suspend fun getAllCourses(
+            @Query("branchID") branchId: Int
+    ): Response<List<CourseDTO>>
 }

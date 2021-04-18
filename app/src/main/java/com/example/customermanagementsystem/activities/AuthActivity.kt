@@ -85,6 +85,7 @@ class AuthActivity : AppCompatActivity() {
                 Log.d("AuthD", response.body().toString())
                 Log.d("AuthD", response.code().toString())
                 Log.d("AuthD", response.message())
+                Toast.makeText(applicationContext, resources.getString(R.string.error_occured), Toast.LENGTH_LONG).show()
             }
         })
     }
