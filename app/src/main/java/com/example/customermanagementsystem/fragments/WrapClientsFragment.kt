@@ -76,7 +76,6 @@ class WrapClientsFragment : Fragment() {
             else if(!response.isSuccessful){
                 Log.d("WRAPCLEITNS", response.body().toString())
                 Log.d("WRAPCLEITNS", response.code().toString())
-                Log.d("WRAPCLEITNS", response.message())
             }
         })
     }
