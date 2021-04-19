@@ -21,6 +21,12 @@ interface Api {
         @Body newClient: ClientDTO
     ):Response<String>
 
+    @POST("/api/v1/client-boards/getBoards")
+    suspend fun getAllClients(
+            @Query("branchId") branchId: Int,
+            @Body criteria:Any = Object()
+    ):Response<List<ClientDTO>>
+
     @GET("api/v1/groups")
     suspend fun getAllGroups(
         @Query("branchID") branchId: Int

@@ -49,8 +49,8 @@ class GroupDataFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        groupId = sharedPreferences.getLong("groupId", 0)
+        //val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        //groupId = sharedPreferences.getLong("groupId", 0)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -147,7 +147,7 @@ class GroupDataFragment : Fragment() {
         viewModel.allTeachers.observe(viewLifecycleOwner, Observer { response ->
             if (response.isSuccessful) {
                 teachersList = response.body()!!
-                val teachers: MutableList<String> = ArrayList<String>()
+                val teachers: MutableList<String> = ArrayList()
                 for (i in teachersList.indices) {
                     teachers.add(teachersList.get(i).name)
                 }

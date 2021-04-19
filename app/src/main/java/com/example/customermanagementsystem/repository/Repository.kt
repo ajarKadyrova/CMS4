@@ -41,4 +41,8 @@ class Repository {
     suspend fun getAllCourses(branchId: Int):Response<List<CourseDTO>>{
         return RetrofitInstance.api.getAllCourses(branchId)
     }
+
+    suspend fun getAllClients(branchId: Int, criteria:Any = Object()):Response<List<ClientDTO>>{
+        return RetrofitInstance.api.getAllClients(branchId, criteria)
+    }
 }
