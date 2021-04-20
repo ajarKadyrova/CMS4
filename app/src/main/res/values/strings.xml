@@ -64,6 +64,15 @@
     <string name="choose_date">Выберите дату</string>
     <string name="find">Найти</string>
     <string name="error_occured">Возникла ошибка. Попробуйте позднее</string>
+    <string name="enter_course">Введите направление</string>
+    <string name="enter_groupName">Введите название группы</string>
+    <string name="enter_teacher">Введите преподавателя группы</string>
+    <string name="enter_time">Введите время занятия группы</string>
+    <string name="enter_dates">Введите дату старта и окончания группы</string>
+    <string name="enter_payment">Введите оплату для группы</string>
+    <string name="enter_cabinet">Введите кабинет для группы</string>
+    <string name="board_is_created">Новая доска была успешно создана</string>
+    <string name="no_groups">Групп нет</string>
     <string-array name="week_days">
         <item>Понедельник</item>
         <item>Вторник</item>
@@ -73,4 +82,9 @@
         <item>Суббота</item>
         <item>Воскресенье</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="start_time">Время начала занятия</string>
+    <string name="end_time">Время конца занятия</string>
+    <string name="new_group">Новая группа успешно создана</string>
 </resources>

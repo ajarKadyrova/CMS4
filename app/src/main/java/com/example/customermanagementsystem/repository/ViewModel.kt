@@ -1,4 +1,4 @@
-package com.example.customermanagementsystem
+package com.example.customermanagementsystem.repository
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -6,13 +6,14 @@ import androidx.lifecycle.viewModelScope
 import com.example.customermanagementsystem.models.*
 import com.example.customermanagementsystem.repository.Repository
 import kotlinx.coroutines.launch
+import okhttp3.ResponseBody
 import retrofit2.Response
 
 class ViewModel(private val repository : Repository) : ViewModel(){
 
     val myResponse : MutableLiveData<Response<RegisterUserResult>> = MutableLiveData()
     val myAuthResponse: MutableLiveData<Response<AuthUserResult>> = MutableLiveData()
-    val newClientResponse: MutableLiveData<Response<String>> = MutableLiveData()
+    val newClientResponse: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
     val allGroups: MutableLiveData<Response<List<GroupDTO>>> = MutableLiveData()
     val allStudents: MutableLiveData<Response<List<StudentsDTO>>> = MutableLiveData()
     val myGroup: MutableLiveData<Response<GroupDTO>> = MutableLiveData()
@@ -20,6 +21,10 @@ class ViewModel(private val repository : Repository) : ViewModel(){
     val allRooms: MutableLiveData<Response<List<RoomDTO>>> = MutableLiveData()
     val allCourses: MutableLiveData<Response<List<CourseDTO>>> = MutableLiveData()
     val allClients: MutableLiveData<Response<List<ClientDTO>>> = MutableLiveData()
+    val allBoards: MutableLiveData<Response<List<ClientDTO>>> = MutableLiveData()
+    val newBoard: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
+    val myEmail: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
+    val newGroup: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
 
     fun registerUser(user: RegistrationModel){
         viewModelScope.launch {
@@ -35,7 +40,7 @@ class ViewModel(private val repository : Repository) : ViewModel(){
         }
     }
 
-    fun createClient(branchId: Int, newClient: ClientDTO){
+    fun createClient(branchId: Int, newClient: PostClient){
         viewModelScope.launch {
             val response = repository.createClient(branchId, newClient)
             newClientResponse.value = response
@@ -77,9 +82,9 @@ class ViewModel(private val repository : Repository) : ViewModel(){
         }
     }
 
-    fun getAllCourses(branchId: Int){
+    fun getAllCourses(){
         viewModelScope.launch {
-            val response = repository.getAllCourses(branchId)
+            val response = repository.getAllCourses()
             allCourses.value = response
         }
     }
@@ -88,6 +93,34 @@ class ViewModel(private val repository : Repository) : ViewModel(){
         viewModelScope.launch {
             val response = repository.getAllClients(branchId, criteria)
             allClients.value = response
+        }
+    }
+
+    fun getAllBoards(branchId: Int){
+        viewModelScope.launch {
+            val response = repository.getAllBoards(branchId)
+            allBoards.value = response
+        }
+    }
+
+    fun createBoard(newBoardName: PostNewBoard){
+        viewModelScope.launch {
+            val response = repository.createBoard(newBoardName)
+            newBoard.value = response
+        }
+    }
+
+    fun getRecoveryPassword(email: String){
+        viewModelScope.launch {
+            val response = repository.getRecoveryCode(email)
+            newBoard.value = response
+        }
+    }
+
+    fun createGroup(branchId: Int, group: PostGroup){
+        viewModelScope.launch {
+            val response = repository.createGroup(branchId, group)
+            newGroup.value = response
         }
     }
 }

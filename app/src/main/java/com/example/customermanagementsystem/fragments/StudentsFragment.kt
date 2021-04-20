@@ -12,8 +12,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.customermanagementsystem.R
-import com.example.customermanagementsystem.ViewModel
-import com.example.customermanagementsystem.ViewModelFactory
+import com.example.customermanagementsystem.repository.ViewModel
+import com.example.customermanagementsystem.repository.ViewModelFactory
 import com.example.customermanagementsystem.adapter.StudentsAdapter
 import com.example.customermanagementsystem.models.StudentsDTO
 import com.example.customermanagementsystem.repository.Repository
@@ -26,14 +26,7 @@ class StudentsFragment : Fragment(), StudentsAdapter.OnItemClickListener{
     private var studentsList: List<StudentsDTO> = ArrayList<StudentsDTO>()
     private val adapter by lazy { StudentsAdapter(studentsList, this) }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_students, container, false)
     }
 

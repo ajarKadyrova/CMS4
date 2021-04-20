@@ -2,7 +2,7 @@ package com.example.customermanagementsystem.models
 
 data class Result(
     val active: Boolean,
-    val branch: Branch,
+    val branch: BranchDTO,
     val email: String,
     val firstName: String,
     val id: Int,

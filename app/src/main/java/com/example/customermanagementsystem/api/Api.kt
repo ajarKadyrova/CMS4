@@ -1,8 +1,10 @@
 package com.example.customermanagementsystem.api
 
 import com.example.customermanagementsystem.models.*
+import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.*
+import java.util.*
 
 interface Api {
     @POST("api/v1/auth/sign-up")
@@ -18,13 +20,18 @@ interface Api {
     @POST("api/v1/clients")
     suspend fun createClient(
         @Query("branchID") branchId: Int,
-        @Body newClient: ClientDTO
-    ):Response<String>
+        @Body newClient: PostClient
+    ):Response<ResponseBody>
+
+    @POST("/api/v1/clients/get")
+    suspend fun getAllClients(
+            @Query("branchID") branchId: Int,
+            @Body newClient: Any = Object()
+    ):Response<List<ClientDTO>>
 
     @POST("/api/v1/client-boards/getBoards")
-    suspend fun getAllClients(
-            @Query("branchId") branchId: Int,
-            @Body criteria:Any = Object()
+    suspend fun getAllBoards(
+            @Query("branchId") branchId: Int
     ):Response<List<ClientDTO>>
 
     @GET("api/v1/groups")
@@ -54,7 +61,21 @@ interface Api {
     ): Response<List<RoomDTO>>
 
     @GET("api/v1/courses")
-    suspend fun getAllCourses(
-            @Query("branchID") branchId: Int
-    ): Response<List<CourseDTO>>
+    suspend fun getAllCourses(): Response<List<CourseDTO>>
+
+    @POST("api/v1/client-boards")
+    suspend fun createBoard(
+            @Body newBoard: PostNewBoard
+    ):Response<ResponseBody>
+
+    @POST("api/v1/groups")
+    suspend fun createGroup(
+            @Query("branchID") branchId:Int,
+            @Body newGroup: PostGroup
+    ): Response<ResponseBody>
+
+    @POST("api/v1/auth/reset")
+    suspend fun getRecoveryCode(
+        @Query("email") email: String
+    ): Response<ResponseBody>
 }

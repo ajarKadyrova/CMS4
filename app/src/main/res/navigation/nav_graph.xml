@@ -28,10 +28,6 @@
             app:destination="@id/newGroupBottomSheetFragment" />
     </fragment>
     <fragment
-        android:id="@+id/studentsFragment"
-        android:name="com.example.customermanagementsystem.fragments.StudentsFragment"
-        android:label="StudentsFragment" />
-    <fragment
         android:id="@+id/scheduleFragment"
         android:name="com.example.customermanagementsystem.fragments.ScheduleFragment"
         android:label="ScheduleFragment" />
@@ -112,5 +108,9 @@
         android:name="com.example.customermanagementsystem.fragments.StudentAddBottomSheetFragment"
         android:label="fragment_student_add_bottom_sheet"
         tools:layout="@layout/fragment_student_add_bottom_sheet" />
+    <fragment
+        android:id="@+id/wrapStudentsFragment"
+        android:name="com.example.customermanagementsystem.fragments.WrapStudentsFragment"
+        android:label="WrapStudentsFragment" />
 
 </navigation>

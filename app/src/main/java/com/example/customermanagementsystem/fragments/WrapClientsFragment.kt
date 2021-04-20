@@ -5,15 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.customermanagementsystem.R
-import com.example.customermanagementsystem.ViewModel
+import com.example.customermanagementsystem.repository.ViewModel
 import androidx.lifecycle.Observer
-import com.example.customermanagementsystem.ViewModelFactory
-import com.example.customermanagementsystem.models.ClientCriteria
+import com.example.customermanagementsystem.repository.ViewModelFactory
 import com.example.customermanagementsystem.models.ClientDTO
 import com.example.customermanagementsystem.pagerAdapter.ClientsPagerAdapter
 import com.example.customermanagementsystem.repository.Repository
@@ -55,18 +53,21 @@ class WrapClientsFragment : Fragment() {
         val criteria: Any = Object()
 
         val repository = Repository()
-        val viewModelFactory = ViewModelFactory(repository)
+        val viewModelFactory =
+            ViewModelFactory(
+                repository
+            )
         viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
-        viewModel.getAllClients(1, criteria)
+        viewModel.getAllBoards(1)
         viewModel.allClients.observe(viewLifecycleOwner, Observer { response ->
             if (response.isSuccessful) {
                 clientsList = response.body()!!
                 Log.d("WRAPCLEITNS", clientsList.toString())
                 for (i in clientsList.indices) {
-                    Log.d("WRAPCLEITNS", clientsList[i].boardName)
                     val fragmentChild = FirstStage()
                     if (adapter != null) {
                         adapter.addFragment(fragmentChild, clientsList[i].boardName)
+                        Log.d("WRAPCLEITNS", clientsList[i].boardName)
                         adapter.notifyDataSetChanged()
                         if (adapter.count > 0) tabLayout_wrap.setupWithViewPager(viewPager_wrap)
                         viewPager_wrap.currentItem = adapter.count - 1

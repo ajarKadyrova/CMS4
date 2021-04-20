@@ -24,7 +24,6 @@ class ClientAdapter(private val clientsList: List<ClientItem>,
         )
     }
 
-
     override fun onBindViewHolder(holder: ClientViewHolder, position: Int) {
         val res: Resources = holder.itemView.getContext().getResources()
         val currentClient = clientsList[position]

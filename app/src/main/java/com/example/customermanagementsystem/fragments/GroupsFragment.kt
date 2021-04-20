@@ -15,8 +15,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.customermanagementsystem.R
-import com.example.customermanagementsystem.ViewModel
-import com.example.customermanagementsystem.ViewModelFactory
+import com.example.customermanagementsystem.repository.ViewModel
+import com.example.customermanagementsystem.repository.ViewModelFactory
 import com.example.customermanagementsystem.adapter.GroupAdapter
 import com.example.customermanagementsystem.models.GroupDTO
 import com.example.customermanagementsystem.repository.Repository
@@ -50,9 +50,14 @@ class GroupsFragment : Fragment(), GroupAdapter.OnItemClickListener {
         viewModel.getAllGroups(1)
         viewModel.allGroups.observe(viewLifecycleOwner, Observer { response ->
             if(response.isSuccessful){
-                response.body()?.let { adapter.setData(it) }
-                recyclerView_groups.adapter = adapter
-                recyclerView_groups.layoutManager = LinearLayoutManager(context)
+                if(response.body()?.isNotEmpty()!!) {
+                    response.body()?.let { adapter.setData(it) }
+                    recyclerView_groups.adapter = adapter
+                    recyclerView_groups.layoutManager = LinearLayoutManager(context)
+                }
+                else {
+                    textView_group.text = resources.getString(R.string.no_groups)
+                }
             } else {
                 Toast.makeText(context, resources.getString(R.string.error_loading), Toast.LENGTH_LONG).show()
                 Log.d("Groups", "body + " + response.body().toString())

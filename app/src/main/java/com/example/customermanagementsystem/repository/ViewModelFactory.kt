@@ -1,11 +1,12 @@
-package com.example.customermanagementsystem
+package com.example.customermanagementsystem.repository
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.customermanagementsystem.repository.Repository
 
 class ViewModelFactory(private val repository: Repository):ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return  ViewModel(repository) as  T
+        return  ViewModel(
+            repository
+        ) as  T
     }
 }

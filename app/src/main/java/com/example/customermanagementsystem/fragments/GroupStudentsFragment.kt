@@ -12,15 +12,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.customermanagementsystem.R
-import com.example.customermanagementsystem.ViewModel
-import com.example.customermanagementsystem.ViewModelFactory
+import com.example.customermanagementsystem.repository.ViewModel
+import com.example.customermanagementsystem.repository.ViewModelFactory
 import com.example.customermanagementsystem.adapter.GroupStudentsAdapter
 import com.example.customermanagementsystem.models.GroupDTO
 import com.example.customermanagementsystem.repository.Repository
 import kotlinx.android.synthetic.main.fragment_group_students.*
-import kotlinx.android.synthetic.main.fragment_groups.*
 
 class GroupStudentsFragment : Fragment() {
 
@@ -50,7 +48,10 @@ class GroupStudentsFragment : Fragment() {
         val token = sharedPreferences.getInt("token", 0)
 
         val repository = Repository()
-        val viewModelFactory = ViewModelFactory(repository)
+        val viewModelFactory =
+            ViewModelFactory(
+                repository
+            )
         viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
         viewModel.getGroup(1, groupId)
         viewModel.myGroup.observe(viewLifecycleOwner, Observer { response ->

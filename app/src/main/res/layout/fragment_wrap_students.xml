@@ -5,21 +5,14 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolBar_clients"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/main_purple"
-        app:title="@string/clients"
-        app:titleTextColor="@color/white" />
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar_layout"
+        android:id="@+id/appbar_layout_students"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
 
             <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout_wrap"
+                android:id="@+id/tabLayout_wrap_students"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/transparent"
@@ -36,26 +29,14 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:layout_alignBottom="@id/appbar_layout"
+        android:layout_alignBottom="@id/appbar_layout_students"
         android:background="@color/colorDivider" />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager_wrap"
+        android:id="@+id/viewPager_wrap_students"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_below="@id/appbar_layout"
+        android:layout_below="@id/appbar_layout_students"
         android:layout_alignParentBottom="true" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_clients"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/main_purple"
-        android:src="@drawable/ic_add"
-        app:tint="@color/white" />
 
 </RelativeLayout>

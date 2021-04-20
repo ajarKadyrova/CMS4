@@ -5,13 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolBar_students"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/main_purple"
-        app:title="@string/students1"
-        app:titleTextColor="@color/white" />
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolBar_students"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:background="@color/main_purple"-->
+<!--        app:title="@string/students1"-->
+<!--        app:titleTextColor="@color/white" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_students"
@@ -19,7 +19,9 @@
         android:layout_height="wrap_content"
         android:nestedScrollingEnabled="false"
         tools:listitem="@layout/list_view"
-        android:layout_below="@id/toolBar_students"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"/>
+<!--        android:layout_below="@id/toolBar_students"/>-->
 
     <TextView
         android:id="@+id/textView"

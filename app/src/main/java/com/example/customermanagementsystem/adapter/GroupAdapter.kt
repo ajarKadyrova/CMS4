@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.customermanagementsystem.R
 import com.example.customermanagementsystem.models.GroupDTO
 import kotlinx.android.synthetic.main.group_view.view.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class GroupAdapter(private var groupsList: List<GroupDTO>,
                    private val listener: OnItemClickListener) :
@@ -23,9 +25,21 @@ class GroupAdapter(private var groupsList: List<GroupDTO>,
 
         holder.teacher_name.text = currentClient.teacher.name
         holder.course.text = currentClient.course.name
+        val days : MutableList<String>  = ArrayList()
         for(i in currentClient.timeTable.daysOfWeeks){
-            holder.schedule.text = i + holder.schedule.text + " "
+            when (i) {
+                "MONDAY" -> days.add("Понедельник")
+                "TUESDAY" -> days.add("Вторник")
+                "WEDNESDAY" -> days.add("Среда")
+                "THURSDAY" -> days.add("Четверг")
+                "FRIDAY" -> days.add("Пятница")
+                "SATURDAY" -> days.add("Суббота")
+                "SUNDAY" -> days.add("Воскресенье")
+            }
         }
+        holder.schedule.text = days.toString()
+            .replace("[", "" )
+            .replace("]", "")
         holder.start_date.text = currentClient.startDate
         holder.students_num.text = currentClient.numberOfStudents.toString() + " учеников"
     }

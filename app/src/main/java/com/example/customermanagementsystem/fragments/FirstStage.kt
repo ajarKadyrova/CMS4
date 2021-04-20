@@ -1,21 +1,16 @@
 package com.example.customermanagementsystem.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.customermanagementsystem.R
-import com.example.customermanagementsystem.ViewModel
-import com.example.customermanagementsystem.ViewModelFactory
+import com.example.customermanagementsystem.repository.ViewModel
 import com.example.customermanagementsystem.adapter.ClientAdapter
 import com.example.customermanagementsystem.models.ClientItem
-import com.example.customermanagementsystem.repository.Repository
 import kotlinx.android.synthetic.main.fragment_clients.*
 
 

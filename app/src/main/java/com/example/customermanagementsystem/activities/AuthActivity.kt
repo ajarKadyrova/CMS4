@@ -13,8 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.customermanagementsystem.R
-import com.example.customermanagementsystem.ViewModel
-import com.example.customermanagementsystem.ViewModelFactory
+import com.example.customermanagementsystem.repository.ViewModel
+import com.example.customermanagementsystem.repository.ViewModelFactory
 import com.example.customermanagementsystem.models.AuthUser
 import com.example.customermanagementsystem.repository.Repository
 import kotlinx.android.synthetic.main.activity_auth.*
@@ -27,7 +27,7 @@ class AuthActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
-        password_auth.setTransformationMethod(PasswordTransformationMethod.getInstance())
+        password_auth.transformationMethod = PasswordTransformationMethod.getInstance()
         signIn_btn.visibility = View.VISIBLE
         progress_bar_auth.visibility = View.INVISIBLE
 
@@ -64,7 +64,10 @@ class AuthActivity : AppCompatActivity() {
         val password = password_auth.text.toString()
         val authUser = AuthUser(login, password)
         val repository = Repository()
-        val viewModelFactory = ViewModelFactory(repository)
+        val viewModelFactory =
+            ViewModelFactory(
+                repository
+            )
         viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
         viewModel.authUser(authUser)
         viewModel.myAuthResponse.observe(this, Observer { response ->
