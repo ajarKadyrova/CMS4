@@ -27,10 +27,6 @@ class ClientProfileFragment : Fragment() {
     private lateinit var coursesHashMap: HashMap<String, Long>
     private lateinit var boardsHashMap: HashMap<String, Long>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -57,10 +53,7 @@ class ClientProfileFragment : Fragment() {
 
     private fun setView() {
         val repository = Repository()
-        val viewModelFactory =
-            ViewModelFactory(
-                repository
-            )
+        val viewModelFactory = ViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
 
         viewModel.getAllCourses()
@@ -76,7 +69,6 @@ class ClientProfileFragment : Fragment() {
                 for (i in coursesList.indices) {
                     coursesHashMap = HashMap()
                     coursesHashMap[coursesList[i].name] = coursesList[i].id
-
                 }
                 //course_group.setText(coursesList[0].name)
             } else {

@@ -9,7 +9,7 @@ import com.example.customermanagementsystem.R
 import com.example.customermanagementsystem.models.GroupDTO
 import kotlinx.android.synthetic.main.group_students_view.view.*
 
-class GroupStudentsAdapter(private var studentsList:List<GroupDTO>) :RecyclerView.Adapter<GroupStudentsAdapter.GroupStudentsViewHolder>(){
+class GroupStudentsAdapter(private var studentsList:GroupDTO) :RecyclerView.Adapter<GroupStudentsAdapter.GroupStudentsViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupStudentsViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.group_students_view, parent, false)
@@ -17,17 +17,16 @@ class GroupStudentsAdapter(private var studentsList:List<GroupDTO>) :RecyclerVie
     }
 
     override fun onBindViewHolder(holder: GroupStudentsViewHolder, position: Int) {
-        val currentStudent = studentsList[position]
-
-        //holder.name.text = currentStudent.students.
+        val currentStudent = studentsList.students[position]
+        holder.name.text = currentStudent.studentName
         //holder.payment1.text = currentStudent.payment1.toString()
         //holder.payment2.text = currentStudent.payment2.toString()
         //holder.payment3.text = currentStudent.payment3.toString()
     }
 
-    override fun getItemCount() = studentsList.size
+    override fun getItemCount() = 1
 
-    fun setData(newList: List<GroupDTO>){
+    fun setData(newList: GroupDTO){
         studentsList = newList
         notifyDataSetChanged()
     }

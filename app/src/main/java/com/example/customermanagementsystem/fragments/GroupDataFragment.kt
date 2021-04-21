@@ -46,6 +46,13 @@ class GroupDataFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_group_data, container, false)
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+        groupId = sharedPreferences.getLong("groupId", 0)
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

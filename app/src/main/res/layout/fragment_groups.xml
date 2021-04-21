@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         tools:listitem="@layout/group_view"
         android:nestedScrollingEnabled="false"
-        android:layout_below="@id/toolBar_groups"/>
+        android:layout_below="@id/toolBar_groups"
+        android:layout_marginBottom="16dp"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_groups"
@@ -33,7 +34,7 @@
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true" />
 
     <TextView
         android:id="@+id/textView_group"

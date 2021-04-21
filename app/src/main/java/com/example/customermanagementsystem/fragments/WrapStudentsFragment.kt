@@ -39,14 +39,13 @@ class WrapStudentsFragment : Fragment() {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 viewPager_wrap_students.currentItem = tab.position
             }
-
             override fun onTabUnselected(tab: TabLayout.Tab) {}
             override fun onTabReselected(tab: TabLayout.Tab) {}
         })
         addPage()
     }
 
-    fun addPage() {
+    private fun addPage() {
 
         val adapter: StudentsPagerAdapter? = null
 
@@ -64,6 +63,7 @@ class WrapStudentsFragment : Fragment() {
                         Log.d("WRAPSTUDENTS", coursesList[i].name)
                         adapter.notifyDataSetChanged()
                         if (adapter.count > 0) tabLayout_wrap_students.setupWithViewPager(viewPager_wrap_students)
+                        textview_fws.setText(coursesList[i].name)
                         viewPager_wrap_students.currentItem = adapter.count - 1
                     }
                 }
