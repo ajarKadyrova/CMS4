@@ -9,7 +9,7 @@ import com.example.customermanagementsystem.R
 import com.example.customermanagementsystem.models.GroupDTO
 import kotlinx.android.synthetic.main.group_students_view.view.*
 
-class GroupStudentsAdapter(private var studentsList:GroupDTO) :RecyclerView.Adapter<GroupStudentsAdapter.GroupStudentsViewHolder>(){
+class GroupStudentsAdapter(private var studentsList: GroupDTO) :RecyclerView.Adapter<GroupStudentsAdapter.GroupStudentsViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GroupStudentsViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.group_students_view, parent, false)

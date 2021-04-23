@@ -2,6 +2,7 @@ package com.example.customermanagementsystem.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,8 +32,10 @@ class GroupStudentsFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        groupId = sharedPreferences.getLong("groupId", 0)
+        groupId = (parentFragment as WrapGroupDataFragment).groupId
+        Log.e("groupStudentsID", groupId.toString())
+//        val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
+//        groupId = sharedPreferences.getLong("groupId", 0)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,11 +48,16 @@ class GroupStudentsFragment : Fragment() {
         viewModel.getGroup(1, groupId)
         viewModel.myGroup.observe(viewLifecycleOwner, Observer { response ->
             if(response.isSuccessful) {
-                val studentsList: GroupDTO = response.body()!!
-                //val adapter by lazy{ GroupStudentsAdapter(studentsList)}
-                //adapter.setData(studentsList)
-                //recyclerView_group_students.layoutManager = LinearLayoutManager(this.context)
-                //recyclerView_group_students.adapter = adapter
+                val studentsList = response.body()!!
+                if (response.body()!!.numberOfStudents == 0){
+                    Log.e("No students", 0.toString())
+                }
+                else{
+                    val adapter by lazy{ GroupStudentsAdapter(studentsList)}
+                    adapter.setData(studentsList)
+                    recyclerView_group_students.layoutManager = LinearLayoutManager(this.context)
+                    recyclerView_group_students.adapter = adapter
+                }
             }
             else Toast.makeText(context, resources.getString(R.string.error_loading), Toast.LENGTH_SHORT).show()
         })
