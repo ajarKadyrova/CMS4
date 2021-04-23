@@ -71,10 +71,9 @@ class GroupsFragment : Fragment(), GroupAdapter.OnItemClickListener {
 
     override fun onItemClick(position: Int, groupDTO: GroupDTO) {
         groupId = groupDTO.id
-        val sharedPrefs: SharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        val editor = sharedPrefs.edit()
-        editor.putLong("groupId", groupId).apply()
-        findNavController().navigate(R.id.action_groupsFragment_to_wrapGroupDataFragment)
+        var bundle = Bundle()
+        bundle.putLong("groupId", groupId)
+        findNavController().navigate(R.id.action_groupsFragment_to_wrapGroupDataFragment, bundle)
     }
 
     public fun getInstanceGroup(): GroupsFragment? {

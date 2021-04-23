@@ -28,7 +28,7 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 
-class GroupDataFragment : Fragment() {
+class AddGroupFragment : Fragment() {
 
     private lateinit var viewModel: ViewModel
     private var teachersList: List<TeacherDTO> = ArrayList()
@@ -43,42 +43,17 @@ class GroupDataFragment : Fragment() {
     private var fGroupTime = -1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        groupId = (parentFragment as WrapGroupDataFragment).groupId
-        Log.e("groupId", groupId.toString())
         return inflater.inflate(R.layout.fragment_group_data, container, false)
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        if (groupId <= 0) {
             edit_btn_groups.text = resources.getString(R.string.save)
             archive_btn_groups.visibility = View.GONE
             setView()
-        } else if (groupId > 0) {
-            edit_btn_groups.text = resources.getString(R.string.edit)
-            archive_btn_groups.visibility = View.VISIBLE
 
-            val repository = Repository()
-            val viewModelFactory = ViewModelFactory(repository)
-            viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
-            viewModel.getGroup(1, groupId)
-            viewModel.myGroup.observe(viewLifecycleOwner, Observer { response ->
-                if (response.isSuccessful) {
-                    val myGroup = response.body()
-                    if (myGroup != null) {
-                        setViewGroup(myGroup)
-                    }
-                } else Toast.makeText(
-                    context,
-                    resources.getString(R.string.error_loading),
-                    Toast.LENGTH_SHORT
-                ).show()
-            })
-        }
         edit_btn_groups.setOnClickListener {
             if (edit_btn_groups.text == resources.getString(R.string.save)) {
                 getData()

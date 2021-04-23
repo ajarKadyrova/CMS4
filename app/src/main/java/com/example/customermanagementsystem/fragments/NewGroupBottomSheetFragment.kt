@@ -27,7 +27,7 @@ class NewGroupBottomSheetFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         create_group_btn_btm.setOnClickListener {
             //val action = NewGroupBottomSheetFragmentDirections.actionNewGroupBottomSheetFragmentToGroupDataFragment("newGroup")
-            findNavController().navigate(R.id.action_newGroupBottomSheetFragment_to_groupDataFragment)
+            findNavController().navigate(R.id.action_newGroupBottomSheetFragment_to_addGroupFragment)
         }
     }
 }
