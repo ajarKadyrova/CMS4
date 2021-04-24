@@ -25,6 +25,7 @@ class ViewModel(private val repository : Repository) : ViewModel(){
     val myEmail: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
     val newGroup: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
     val studentWoutGroup: MutableLiveData<Response<List<StudentsDTO>>> = MutableLiveData()
+    val addStudentGroup: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
 
     fun registerUser(user: RegistrationModel){
         viewModelScope.launch {
@@ -128,6 +129,13 @@ class ViewModel(private val repository : Repository) : ViewModel(){
         viewModelScope.launch {
             val response = repository.getStudentsWoutGroups(branchId)
             studentWoutGroup.value = response
+        }
+    }
+
+    fun addStudentToGroup(id: Long, branchId: Int, student: StudentsDTO){
+        viewModelScope.launch {
+            val response = repository.addStudentToGroup(id, branchId, student)
+            addStudentGroup.value = response
         }
     }
 }

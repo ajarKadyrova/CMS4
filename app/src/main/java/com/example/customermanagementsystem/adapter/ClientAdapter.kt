@@ -31,33 +31,41 @@ class ClientAdapter(private var clientsList: List<Client>,
         val res: Resources = holder.itemView.context.resources
         val currentClient = clientsList[position]
         if (currentClient.firstName == null && currentClient.lastName == null) {
-            holder.name.text = "Заявка №" + (position+1)
-        } else{
+            holder.name.text = "Заявка №" + (position + 1)
+        } else {
             holder.name.text = currentClient.firstName + " " + currentClient.lastName
         }
         holder.number.text = currentClient.phoneNumber
-        holder.course.text = "currentClient.wantsCourse.name"
-        when (holder.course.text) {
-            "Android" -> {
-                holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.green))
+        //if (currentClient.wantsCourse.name != "") {
+            holder.course.text = "currentClient.wantsCourse.name"
+            when (holder.course.text) {
+                "Android" -> {
+                    holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.green))
+                }
+                "UX/UI" -> {
+                    holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_purple))
+                }
+                "JavaScript" -> {
+                    holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.yellow))
+                }
+                ("PM") -> {
+                    holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_pink))
+                }
+                "Java" -> {
+                    holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_orange))
+                }
+                "Python" -> {
+                    holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_blue))
+                }
+                "IOS" -> {
+                    holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_light_blue))
+                }
             }
-            "UX/UI" -> {
-                holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_purple))
-            }
-            "JavaScript" -> {
-                holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.yellow))
-            }
-            ("PM") -> {
-                holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_pink))
-            }
-            "Java" -> {
-                holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_orange))
-            }
-            "Python" -> {
-                holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_blue))
-            }
-        }
-        holder.date.text = currentClient.registrationDate
+        //}
+        //else {
+            //holder.course.visibility = View.GONE
+        //}
+            holder.date.text = currentClient.registrationDate
     }
 
     override fun getItemCount() = clientsList.size

@@ -18,7 +18,7 @@ class GroupStudentsAdapter(private var studentsList: GroupDTO) :RecyclerView.Ada
 
     override fun onBindViewHolder(holder: GroupStudentsViewHolder, position: Int) {
         val currentStudent = studentsList.students[position]
-        holder.name.text = currentStudent.studentName
+        holder.name.text = currentStudent.firstName + " " + currentStudent.lastName
         //holder.payment1.text = currentStudent.payment1.toString()
         //holder.payment2.text = currentStudent.payment2.toString()
         //holder.payment3.text = currentStudent.payment3.toString()

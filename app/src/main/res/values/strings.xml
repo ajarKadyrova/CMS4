@@ -87,4 +87,5 @@
     <string name="new_group">Новая группа успешно создана</string>
     <string name="new_client_creation">Новый клиент успешно создан</string>
     <string name="no_students">В группе нет студентов</string>
+    <string name="add_student_successful">Студент успешно добавлен в группу</string>
 </resources>

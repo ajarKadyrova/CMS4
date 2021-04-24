@@ -15,7 +15,6 @@ class WrapGroupDataFragment : Fragment() {
     var groupId: Long = 0
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         groupId = requireArguments().getLong("groupId", 0)
         return inflater.inflate(R.layout.fragment_wrap_group_data, container, false)
     }

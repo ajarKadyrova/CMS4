@@ -66,4 +66,8 @@ class Repository {
     suspend fun getStudentsWoutGroups(branchId: Int):Response<List<StudentsDTO>>{
         return RetrofitInstance.api.getStudentsWoutGroups(branchId)
     }
+
+    suspend fun addStudentToGroup(id: Long, branchId: Int, student: StudentsDTO):Response<ResponseBody>{
+        return RetrofitInstance.api.addStudentToGroup(id, branchId,  student)
+    }
 }

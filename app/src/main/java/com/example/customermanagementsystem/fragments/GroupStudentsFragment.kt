@@ -67,7 +67,9 @@ class GroupStudentsFragment : Fragment() {
         })
 
         fab_add_student.setOnClickListener {
-            findNavController().navigate(R.id.action_wrapGroupDataFragment_to_groupAddStudentFragment)
+            var bundle = Bundle()
+            bundle.putLong("groupId", groupId)
+            findNavController().navigate(R.id.action_wrapGroupDataFragment_to_groupAddStudentFragment, bundle)
         }
     }
 }

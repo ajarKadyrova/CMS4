@@ -113,7 +113,11 @@
         android:id="@+id/studentAddBottomSheetFragment"
         android:name="com.example.customermanagementsystem.fragments.StudentAddBottomSheetFragment"
         android:label="fragment_student_add_bottom_sheet"
-        tools:layout="@layout/fragment_student_add_bottom_sheet" />
+        tools:layout="@layout/fragment_student_add_bottom_sheet" >
+        <action
+            android:id="@+id/action_studentAddBottomSheetFragment_to_groupAddStudentFragment"
+            app:destination="@id/groupAddStudentFragment" />
+    </dialog>
     <fragment
         android:id="@+id/wrapStudentsFragment"
         android:name="com.example.customermanagementsystem.fragments.WrapStudentsFragment"

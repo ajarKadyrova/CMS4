@@ -84,4 +84,11 @@ interface Api {
     suspend fun getStudentsWoutGroups(
             @Query("branchID") branchId: Int
     ): Response<List<StudentsDTO>>
+
+    @PUT("api/v1/students/add_in_group/{id}")
+    suspend fun addStudentToGroup(
+            @Path("id") id: Long,
+            @Query("branchID") branchId: Int,
+            @Body student:StudentsDTO
+    ): Response<ResponseBody>
 }
