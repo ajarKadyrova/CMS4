@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_students.*
 class GroupAddStudentFragment: Fragment(), StudentsAdapter.OnItemClickListener {
 
     private lateinit var viewModel: ViewModel
-    private var groupId:Long = 0
+    private var groupId:Int = 0
     private var studentsList: List<StudentsDTO> = ArrayList()
     val adapter by lazy{ StudentsAdapter(studentsList, this) }
 
@@ -35,7 +35,7 @@ class GroupAddStudentFragment: Fragment(), StudentsAdapter.OnItemClickListener {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        groupId = requireArguments().getLong("groupId", 0)
+        groupId = requireArguments().getInt("groupId", 0)
         Log.e("groupStudentsID", groupId.toString())
     }
 
@@ -70,8 +70,8 @@ class GroupAddStudentFragment: Fragment(), StudentsAdapter.OnItemClickListener {
         adapter.notifyItemChanged(position)
         Toast.makeText(context, clickedItem.toString(), Toast.LENGTH_LONG).show()
         var bundle = Bundle()
+        bundle.putInt("groupID", groupId)
         bundle.putLong("studentID", clickedItem)
-        bundle.putSerializable("studentBody", studentsList[position])
         findNavController().navigate(R.id.action_groupAddStudentFragment_to_studentAddBottomSheetFragment, bundle)
     }
 }

@@ -30,7 +30,7 @@ class Repository {
         return RetrofitInstance.api.getAllStudents(branchId)
     }
 
-    suspend fun getGroup(branchId: Int, id: Long):Response<GroupDTO>{
+    suspend fun getGroup(branchId: Int, id: Int):Response<GroupDTO>{
         return RetrofitInstance.api.getGroup(id, branchId)
     }
 
@@ -70,7 +70,7 @@ class Repository {
         return RetrofitInstance.api.getStudentsWoutGroups(branchId)
     }
 
-    suspend fun addStudentToGroup(id: Long, branchId: Int, student: StudentsDTO):Response<ResponseBody>{
-        return RetrofitInstance.api.addStudentToGroup(id, branchId,  student)
+    suspend fun addStudentToGroup(studentId: Long, branchId: Int, groupId: Int):Response<ResponseBody>{
+        return RetrofitInstance.api.addStudentToGroup(studentId, branchId,  groupId)
     }
 }

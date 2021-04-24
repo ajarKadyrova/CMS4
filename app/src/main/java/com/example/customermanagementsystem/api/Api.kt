@@ -54,7 +54,7 @@ interface Api {
 
     @GET("api/v1/groups/{id}")
     suspend fun getGroup(
-            @Path("id") id: Long,
+            @Path("id") id: Int,
             @Query("branchID") branchId: Int
     ): Response<GroupDTO>
 
@@ -92,10 +92,10 @@ interface Api {
             @Query("branchID") branchId: Int
     ): Response<List<StudentsDTO>>
 
-    @PUT("api/v1/students/add_in_group/{id}")
+    @PUT("api/v1/students/add_in_group/{studentID}")
     suspend fun addStudentToGroup(
-            @Path("id") id: Long,
+            @Path("studentID") id: Long,
             @Query("branchID") branchId: Int,
-            @Body student:StudentsDTO
+            @Query("groupID") groupId: Int
     ): Response<ResponseBody>
 }

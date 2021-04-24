@@ -69,7 +69,7 @@ class ViewModel(private val repository : Repository) : ViewModel(){
         }
     }
 
-    fun getGroup(branchId: Int, id: Long){
+    fun getGroup(branchId: Int, id: Int){
         viewModelScope.launch {
             val response = repository.getGroup(branchId, id)
             myGroup.value = response
@@ -139,9 +139,9 @@ class ViewModel(private val repository : Repository) : ViewModel(){
         }
     }
 
-    fun addStudentToGroup(id: Long, branchId: Int, student: StudentsDTO){
+    fun addStudentToGroup(studentId: Long, branchId: Int, groupId: Int){
         viewModelScope.launch {
-            val response = repository.addStudentToGroup(id, branchId, student)
+            val response = repository.addStudentToGroup(studentId, branchId, groupId)
             addStudentGroup.value = response
         }
     }

@@ -26,7 +26,7 @@ class StudentsAdapter (private var studentsList: List<StudentsDTO>,
 
         holder.name.text = currentStudent.firstName + " " +currentStudent.lastName
         holder.number.text = currentStudent.phoneNumber
-        holder.course.text = currentStudent.wantsCourse.name
+        holder.course.text = "currentStudent.wantsCourse.name"
         when (holder.course.text) {
             "Android" -> {
                 holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.green))
@@ -37,7 +37,7 @@ class StudentsAdapter (private var studentsList: List<StudentsDTO>,
             "JavaScript" -> {
                 holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.yellow))
             }
-            ("PM") -> {
+            "PM" -> {
                 holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_pink))
             }
             "Java" -> {

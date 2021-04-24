@@ -3,7 +3,6 @@ package com.example.customermanagementsystem.fragments
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -36,13 +35,13 @@ class GroupDataFragment : Fragment() {
     private lateinit var teachersHashMap: HashMap<String, Long>
     private lateinit var roomsHashMap: HashMap<String, Long>
     private lateinit var coursesHashMap: HashMap<String, Long>
-    private var groupId: Long = 0
+    private var groupId: Int = 0
     private var calendar = Calendar.getInstance()
     private var fGroupDate = -1
     private var fGroupTime = -1
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        groupId = (parentFragment as WrapGroupDataFragment).groupId
+        groupId = (parentFragment as WrapGroupDataFragment).groupId.toInt()
         Log.e("groupId", groupId.toString())
         return inflater.inflate(R.layout.fragment_group_data, container, false)
 

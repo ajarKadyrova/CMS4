@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.customermanagementsystem.R
-import com.example.customermanagementsystem.models.StudentsDTO
 import com.example.customermanagementsystem.repository.Repository
 import com.example.customermanagementsystem.repository.ViewModel
 import com.example.customermanagementsystem.repository.ViewModelFactory
@@ -21,16 +20,16 @@ import kotlinx.android.synthetic.main.fragment_student_add_bottom_sheet.*
 
 class StudentAddBottomSheetFragment : BottomSheetDialogFragment() {
 
-    private var studentId: Long = 0
-    private lateinit var student: StudentsDTO
+    private var groupId: Int = 0
+    private var studentID: Long = 0
     private lateinit var viewModel: ViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         val bundle = requireArguments()
-        studentId = bundle.getLong("studentID", 0)
-        student = bundle.getSerializable("studentBody") as StudentsDTO
-        Log.e("studentID", studentId.toString())
+        groupId = bundle.getInt("groupID", 0)
+        studentID = bundle.getLong("studentID", 0)
+        Log.e("studentID", groupId.toString())
     }
 
 
@@ -45,7 +44,9 @@ class StudentAddBottomSheetFragment : BottomSheetDialogFragment() {
             val repository = Repository()
             val viewModelFactory = ViewModelFactory(repository)
             viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
-            viewModel.addStudentToGroup(studentId,1, student)
+            viewModel.addStudentToGroup(studentID,1, groupId)
+            println("AddStudent $studentID")
+            println("AddStudent $groupId")
             viewModel.addStudentGroup.observe(viewLifecycleOwner, Observer { response ->
                 if(response.isSuccessful){
                     Toast.makeText(context, resources.getString(R.string.add_student_successful), Toast.LENGTH_LONG).show()
