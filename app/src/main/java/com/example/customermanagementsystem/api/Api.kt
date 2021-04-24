@@ -35,6 +35,13 @@ interface Api {
             @Body body:Filter
     ):Response<List<ClientDTO>>
 
+    @Headers("Content-Type: application/json")
+    @PUT("/api/v1/client-boards")
+    suspend fun changeClientStatus(
+        @Query("clientID") clientId: Long,
+        @Query("toBoardID") toBoardId: Int
+    ) : Response<ResponseBody>
+
     @GET("api/v1/groups")
     suspend fun getAllGroups(
         @Query("branchID") branchId: Int

@@ -13,6 +13,7 @@ class ViewModel(private val repository : Repository) : ViewModel(){
     val myResponse : MutableLiveData<Response<RegisterUserResult>> = MutableLiveData()
     val myAuthResponse: MutableLiveData<Response<AuthUserResult>> = MutableLiveData()
     val newClientResponse: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
+    val changeClientStatusResponse: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
     val allGroups: MutableLiveData<Response<List<GroupDTO>>> = MutableLiveData()
     val allStudents: MutableLiveData<Response<List<StudentsDTO>>> = MutableLiveData()
     val myGroup: MutableLiveData<Response<GroupDTO>> = MutableLiveData()
@@ -45,6 +46,12 @@ class ViewModel(private val repository : Repository) : ViewModel(){
         viewModelScope.launch {
             val response = repository.createClient(branchId, newClient)
             newClientResponse.value = response
+        }
+    }
+    fun changeClientStatus(clientId : Long, toBoardId: Int){
+        viewModelScope.launch {
+            val response = repository.changeClientStatus(clientId, toBoardId)
+            changeClientStatusResponse.value = response
         }
     }
 

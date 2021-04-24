@@ -1,6 +1,7 @@
 package com.example.customermanagementsystem.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,26 +37,7 @@ class FirstStage : Fragment(), ClientAdapter.OnItemClickListener {
         adapter.setData(clientsList)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
-        /*val filter = Filter(null, null, null, null)
-        val repository = Repository()
-        val viewModelFactory = ViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
-        viewModel.getAllBoards(1, filter)
-        viewModel.allBoards.observe(viewLifecycleOwner, Observer { response ->
-            if (!response.isSuccessful) {
-                Log.d("ANSWER_FRAGMENT", "Code:" + response.code())
-            }
-            if (response.isSuccessful) {
-                Log.d("ANSWER_FRAGMENT", "Code:" + response.code())
-                coursesList = response.body()!!
-                for (i in coursesList.indices) {
-                    if(boardName == coursesList[i].boardName){
-                        recyclerView.adapter = adapter
-                        recyclerView.layoutManager = LinearLayoutManager(context)
-                    }
-                }
-            }
-        })*/
+
     }
 
 
@@ -67,6 +49,7 @@ class FirstStage : Fragment(), ClientAdapter.OnItemClickListener {
         //val board: String = clientsList[position].boards.boardName
         bundle.putLong("clientID", id)
         //bundle.putString("clientBoard", board)
-        findNavController().navigate(R.id.action_mainFragment_to_bottomSheetFragment)
+        Log.e("clientId: ", id.toString())
+        findNavController().navigate(R.id.action_mainFragment_to_bottomSheetFragment, bundle)
     }
 }
