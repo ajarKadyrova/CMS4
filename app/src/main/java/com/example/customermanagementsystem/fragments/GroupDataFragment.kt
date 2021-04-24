@@ -14,7 +14,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.example.customermanagementsystem.R
 import com.example.customermanagementsystem.models.*
 import com.example.customermanagementsystem.repository.ViewModel
@@ -48,7 +47,6 @@ class GroupDataFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_group_data, container, false)
 
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -84,7 +82,6 @@ class GroupDataFragment : Fragment() {
                 getData()
             }
         }
-
         start_date_groups_til.setEndIconOnClickListener {
             pickDate()
             fGroupDate = 0
@@ -205,7 +202,15 @@ class GroupDataFragment : Fragment() {
         val inflater: LayoutInflater = LayoutInflater.from(context)
         for (text: String in tags) {
             val chip: Chip = inflater.inflate(R.layout.chip_item, null, false) as Chip
-            chip.text = text
+            when (text) {
+                "MONDAY" -> chip.text ="Понедельник"
+                "TUESDAY" -> chip.text ="Вторник"
+                "WEDNESDAY" -> chip.text ="Среда"
+                "THURSDAY" -> chip.text ="Четверг"
+                "FRIDAY" -> chip.text ="Пятница"
+                "SATURDAY" -> chip.text ="Суббота"
+                "SUNDAY" -> chip.text ="Воскресенье"
+            }
             chip_group.addView(chip)
         }
 
@@ -301,6 +306,16 @@ class GroupDataFragment : Fragment() {
         for (text: String in tags) {
             val chip: Chip = inflater.inflate(R.layout.chip_item, null, false) as Chip
             chip.text = text
+            (chip.text as String).replace("[", "").replace("]", "")
+            when (chip.text) {
+                "MONDAY" -> chip.text ="Понедельник"
+                "TUESDAY" -> chip.text ="Вторник"
+                "WEDNESDAY" -> chip.text ="Среда"
+                "THURSDAY" -> chip.text ="Четверг"
+                "FRIDAY" -> chip.text ="Пятница"
+                "SATURDAY" -> chip.text ="Суббота"
+                "SUNDAY" -> chip.text ="Воскресенье"
+            }
             chip_group.addView(chip)
         }
         start_time_groups.setText(myGroup.timeTable.startTime)

@@ -1,15 +1,12 @@
-package com.example.customermanagementsystem.pagerAdapter
-
+import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import java.util.ArrayList
+import java.util.*
 
-class StudentsPagerAdapter (fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager) {
-
+class StudentsPagerAdapter(manager: FragmentManager?, var context: Context) : FragmentPagerAdapter(manager!!) {
     private val mFragmentList = ArrayList<Fragment>()
     private val mFragmentTitleList = ArrayList<String>()
-
     override fun getItem(position: Int): Fragment {
         return mFragmentList[position]
     }
@@ -18,12 +15,13 @@ class StudentsPagerAdapter (fragmentManager: FragmentManager): FragmentPagerAdap
         return mFragmentList.size
     }
 
+    fun addFragment(fragment: Fragment, title: String) {
+        mFragmentList.add(fragment)
+        mFragmentTitleList.add(title)
+    }
+
     override fun getPageTitle(position: Int): CharSequence? {
         return mFragmentTitleList[position]
     }
 
-    fun addFragment(fragment: Fragment?, title: String?) {
-        mFragmentList.add(fragment!!)
-        mFragmentTitleList.add(title!!)
-    }
 }

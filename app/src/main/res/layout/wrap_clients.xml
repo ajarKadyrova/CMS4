@@ -16,7 +16,14 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_layout"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:layout_below="@id/toolBar_clients">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout_wrap"
@@ -28,9 +35,9 @@
                 app:tabMode="scrollable"
                 app:tabPaddingBottom="8dp"
                 app:tabPaddingTop="15dp"
-                app:tabSelectedTextColor="@android:color/background_light"
+                app:tabSelectedTextColor="@color/main_purple"
                 app:tabTextColor="@android:color/secondary_text_light_nodisable" />
-
+        </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <View

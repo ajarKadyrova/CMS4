@@ -57,8 +57,8 @@
         android:name="com.example.customermanagementsystem.fragments.WrapGroupDataFragment"
         android:label="WrapGroupDataFragment" >
         <action
-            android:id="@+id/action_wrapGroupDataFragment_to_studentAddBottomSheetFragment"
-            app:destination="@id/studentAddBottomSheetFragment" />
+            android:id="@+id/action_wrapGroupDataFragment_to_groupAddStudentFragment"
+            app:destination="@id/groupAddStudentFragment" />
     </fragment>
     <dialog
         android:id="@+id/fabBottomSheetFragment"
@@ -105,6 +105,9 @@
         <action
             android:id="@+id/action_groupDataFragment_to_groupsFragment"
             app:destination="@id/groupsFragment" />
+        <action
+            android:id="@+id/action_groupDataFragment_to_groupAddStudentFragment"
+            app:destination="@id/groupAddStudentFragment" />
     </fragment>
     <dialog
         android:id="@+id/studentAddBottomSheetFragment"
@@ -119,5 +122,13 @@
         android:id="@+id/addGroupFragment"
         android:name="com.example.customermanagementsystem.fragments.AddGroupFragment"
         android:label="AddGroupFragment" />
+    <fragment
+        android:id="@+id/groupAddStudentFragment"
+        android:name="com.example.customermanagementsystem.fragments.GroupAddStudentFragment"
+        android:label="GroupAddStudentFragment" >
+        <action
+            android:id="@+id/action_groupAddStudentFragment_to_studentAddBottomSheetFragment"
+            app:destination="@id/studentAddBottomSheetFragment" />
+    </fragment>
 
 </navigation>

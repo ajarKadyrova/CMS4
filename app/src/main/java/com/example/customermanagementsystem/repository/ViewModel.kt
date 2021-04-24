@@ -4,7 +4,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.customermanagementsystem.models.*
-import com.example.customermanagementsystem.repository.Repository
 import kotlinx.coroutines.launch
 import okhttp3.ResponseBody
 import retrofit2.Response
@@ -25,6 +24,7 @@ class ViewModel(private val repository : Repository) : ViewModel(){
     val newBoard: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
     val myEmail: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
     val newGroup: MutableLiveData<Response<ResponseBody>> = MutableLiveData()
+    val studentWoutGroup: MutableLiveData<Response<List<StudentsDTO>>> = MutableLiveData()
 
     fun registerUser(user: RegistrationModel){
         viewModelScope.launch {
@@ -96,9 +96,9 @@ class ViewModel(private val repository : Repository) : ViewModel(){
         }
     }
 
-    fun getAllBoards(branchId: Int){
+    fun getAllBoards(branchID: Int, body: Filter?){
         viewModelScope.launch {
-            val response = repository.getAllBoards(branchId)
+            val response = body?.let { repository.getAllBoards(branchID, it) }
             allBoards.value = response
         }
     }
@@ -121,6 +121,13 @@ class ViewModel(private val repository : Repository) : ViewModel(){
         viewModelScope.launch {
             val response = repository.createGroup(branchId, group)
             newGroup.value = response
+        }
+    }
+
+    fun getStudentsWoutGroups(branchId: Int){
+        viewModelScope.launch {
+            val response = repository.getStudentsWoutGroups(branchId)
+            studentWoutGroup.value = response
         }
     }
 }

@@ -34,8 +34,6 @@ class GroupStudentsFragment : Fragment() {
         super.onAttach(context)
         groupId = (parentFragment as WrapGroupDataFragment).groupId
         Log.e("groupStudentsID", groupId.toString())
-//        val sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE)
-//        groupId = sharedPreferences.getLong("groupId", 0)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,9 +49,15 @@ class GroupStudentsFragment : Fragment() {
                 val studentsList = response.body()!!
                 if (response.body()!!.numberOfStudents == 0){
                     Log.e("No students", 0.toString())
+                    student_name_tv.visibility = View.GONE
+                    date_tv1.visibility = View.GONE
+                    date_tv2.visibility = View.GONE
+                    date_tv3.visibility = View.GONE
+                    textView_students_group.visibility = View.VISIBLE
                 }
                 else{
                     val adapter by lazy{ GroupStudentsAdapter(studentsList)}
+                    textView_students_group.visibility = View.GONE
                     adapter.setData(studentsList)
                     recyclerView_group_students.layoutManager = LinearLayoutManager(this.context)
                     recyclerView_group_students.adapter = adapter
@@ -63,7 +67,7 @@ class GroupStudentsFragment : Fragment() {
         })
 
         fab_add_student.setOnClickListener {
-            findNavController().navigate(R.id.action_wrapGroupDataFragment_to_studentAddBottomSheetFragment)
+            findNavController().navigate(R.id.action_wrapGroupDataFragment_to_groupAddStudentFragment)
         }
     }
 }

@@ -25,7 +25,7 @@ class ClientProfileFragment : Fragment() {
     private var coursesList: List<CourseDTO> = ArrayList()
     private var boardsList: List<ClientDTO> = ArrayList()
     private lateinit var coursesHashMap: HashMap<String, Long>
-    private lateinit var boardsHashMap: HashMap<String, Long>
+    private lateinit var boardsHashMap: HashMap<Long, String>
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -76,8 +76,9 @@ class ClientProfileFragment : Fragment() {
                 Log.d("Client", "body + " + response.body().toString())
             }
         })
-
-        viewModel.getAllBoards(1)
+        //val body = BoardID(null)
+        val filter = Filter(null, null, null, null)
+        viewModel.getAllBoards(1, filter)
         viewModel.allBoards.observe(viewLifecycleOwner, Observer { response ->
             if (response.isSuccessful) {
                 boardsList = response.body()!!
@@ -89,13 +90,15 @@ class ClientProfileFragment : Fragment() {
                 status_client.setAdapter(adapter)
                 for (i in boardsList.indices) {
                     boardsHashMap = HashMap()
-                    boardsHashMap[boardsList[i].boardName] = boardsList[i].id
-
+                    boardsHashMap[boardsList[i].id] = boardsList[i].boardName
+                    println(boardsHashMap)
+                    Log.d("BOARDSHASH", boardsHashMap.toString())
                 }
                 //course_group.setText(coursesList[0].name)
             } else {
                 Toast.makeText(context, resources.getString(R.string.error_loading), Toast.LENGTH_LONG).show()
                 Log.d("BOARDSHASH", "body + " + response.body().toString())
+                Log.d("BOARDSHASH", "code + " + response.code().toString())
             }
         })
     }
@@ -109,7 +112,7 @@ class ClientProfileFragment : Fragment() {
         val patronymic = patronymic_client.text.toString()
         val email = email_client.text.toString()
         val phone = phone_client.text.toString()
-        val status = "Новый"
+        val status = status_client.text.toString()
         var hasLaptop = false
         radioGroup_clients.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
@@ -131,10 +134,12 @@ class ClientProfileFragment : Fragment() {
                 Log.d("NewClient", response.body().toString())
                 Log.d("NewClient", response.code().toString())
                 Log.d("NewClient", response.message())
+                Toast.makeText(context, resources.getString(R.string.new_client_creation), Toast.LENGTH_LONG).show()
             } else if (!response.isSuccessful) {
                 Log.d("NewClient", response.body().toString())
                 Log.d("NewClient", response.code().toString())
                 Log.d("NewClient", response.message())
+                Toast.makeText(context, resources.getString(R.string.error_occured), Toast.LENGTH_LONG).show()
             }
         })
     }

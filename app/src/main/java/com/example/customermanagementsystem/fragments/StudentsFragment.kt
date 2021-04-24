@@ -19,11 +19,10 @@ import com.example.customermanagementsystem.models.StudentsDTO
 import com.example.customermanagementsystem.repository.Repository
 import kotlinx.android.synthetic.main.fragment_students.*
 
-class StudentsFragment : Fragment(), StudentsAdapter.OnItemClickListener{
+class StudentsFragment : Fragment(), StudentsAdapter.OnItemClickListener {
 
     private lateinit var viewModel: ViewModel
-    lateinit var sharedPreferences: SharedPreferences
-    private var studentsList: List<StudentsDTO> = ArrayList<StudentsDTO>()
+    private var studentsList: List<StudentsDTO> = ArrayList()
     private val adapter by lazy { StudentsAdapter(studentsList, this) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -38,11 +37,11 @@ class StudentsFragment : Fragment(), StudentsAdapter.OnItemClickListener{
         viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
         viewModel.getAllStudents(1)
         viewModel.allStudents.observe(viewLifecycleOwner, Observer { response ->
-            response.body()?.let { adapter.setData(it) }
-            recyclerView_students.adapter = adapter
-            recyclerView_students.layoutManager = LinearLayoutManager(context)
-            if(response.isSuccessful){
-                //response.body()?.let { adapter.setData(it) }
+            if (response.isSuccessful) {
+                response.body()?.let { adapter.setData(it) }
+                recyclerView_students.adapter = adapter
+                recyclerView_students.layoutManager = LinearLayoutManager(context)
+                response.body()?.let { adapter.setData(it) }
             } else {
                 Toast.makeText(context, resources.getString(R.string.error_loading), Toast.LENGTH_LONG).show()
                 Log.d("Students", "body + " + response.body().toString())

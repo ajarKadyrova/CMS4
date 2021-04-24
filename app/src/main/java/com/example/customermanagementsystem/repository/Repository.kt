@@ -47,8 +47,8 @@ class Repository {
         return RetrofitInstance.api.getAllClients(branchId, criteria)
     }
 
-    suspend fun getAllBoards(branchId: Int):Response<List<ClientDTO>>{
-        return RetrofitInstance.api.getAllBoards(branchId)
+    suspend fun getAllBoards(branchId: Int, body:Filter):Response<List<ClientDTO>>{
+        return RetrofitInstance.api.getAllBoards(branchId, body)
     }
 
     suspend fun createBoard(newBoardName: PostNewBoard):Response<ResponseBody>{
@@ -61,5 +61,9 @@ class Repository {
 
     suspend fun createGroup(branchId: Int, newGroup: PostGroup):Response<ResponseBody>{
         return RetrofitInstance.api.createGroup(branchId, newGroup)
+    }
+
+    suspend fun getStudentsWoutGroups(branchId: Int):Response<List<StudentsDTO>>{
+        return RetrofitInstance.api.getStudentsWoutGroups(branchId)
     }
 }

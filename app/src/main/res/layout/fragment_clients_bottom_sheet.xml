@@ -23,38 +23,7 @@
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checkedButton="@+id/radio_button_1">
-
-            <RadioButton
-                android:id="@+id/radio_button_1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Первый контакт" />
-
-            <RadioButton
-                android:id="@+id/radio_button_2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Звонок" />
-
-            <RadioButton
-                android:id="@+id/radio_button_3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Пробный урок" />
-
-            <RadioButton
-                android:id="@+id/radio_button_4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Посетил пробный урок" />
-
-            <RadioButton
-                android:id="@+id/radio_button_5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Записался на курсы" />
+            android:layout_height="wrap_content">
         </RadioGroup>
 
         <Button

@@ -5,25 +5,39 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar_students"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/main_purple"
+        app:title="@string/students1"
+        app:titleTextColor="@color/white" />
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar_layout_students"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/course_blue">
+        android:background="@color/white"
+        android:layout_below="@id/toolBar_students">
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabLayout_wrap_students"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@android:color/transparent"
-                android:backgroundTint="@color/white"
-                app:tabIndicatorHeight="3dp"
-                app:tabMode="scrollable"
-                app:tabPaddingBottom="8dp"
-                app:tabPaddingTop="15dp"
-                app:tabSelectedTextColor="@android:color/background_light"
-                app:tabTextColor="@android:color/secondary_text_light_nodisable" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout_wrap_students"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@android:color/transparent"
+                    android:backgroundTint="@color/white"
+                    app:tabIndicatorHeight="3dp"
+                    app:tabMode="scrollable"
+                    app:tabPaddingBottom="8dp"
+                    app:tabPaddingTop="15dp"
+                    app:tabSelectedTextColor="@color/main_purple"
+                    app:tabTextColor="@android:color/secondary_text_light_nodisable" />
+            </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <View

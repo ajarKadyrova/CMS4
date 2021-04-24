@@ -31,7 +31,8 @@ interface Api {
 
     @POST("/api/v1/client-boards/getBoards")
     suspend fun getAllBoards(
-            @Query("branchId") branchId: Int
+            @Query("branchID") branchId: Int,
+            @Body body:Filter
     ):Response<List<ClientDTO>>
 
     @GET("api/v1/groups")
@@ -78,4 +79,9 @@ interface Api {
     suspend fun getRecoveryCode(
         @Query("email") email: String
     ): Response<ResponseBody>
+
+    @GET("api/v1/students/without_groups")
+    suspend fun getStudentsWoutGroups(
+            @Query("branchID") branchId: Int
+    ): Response<List<StudentsDTO>>
 }

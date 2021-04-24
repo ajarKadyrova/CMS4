@@ -13,6 +13,7 @@ data class Client(
         val comments: String,
         val branch: BranchDTO,
         val clientIP: String,
-        val id: Int,
-        val ymClientID: String
+        val id: Long,
+        val ymClientID: String,
+        val registrationDate: String
 )
