@@ -100,8 +100,10 @@ class ClientsBottomSheetFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         open_profile_btm_sheet.setOnClickListener {
-            val action = ClientsBottomSheetFragmentDirections.actionBottomSheetFragmentToClientProfileFragment("bottomSheet")
-            findNavController().navigate(action)
+            var bundle = Bundle()
+            bundle.putSerializable("clientID", clientId)
+           // val action = ClientsBottomSheetFragmentDirections.actionBottomSheetFragmentToClientProfileFragment("bottomSheet")
+            findNavController().navigate(R.id.action_bottomSheetFragment_to_clientProfileFragment, bundle)
         }
 
     }

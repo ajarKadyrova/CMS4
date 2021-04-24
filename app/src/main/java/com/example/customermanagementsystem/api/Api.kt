@@ -58,6 +58,12 @@ interface Api {
             @Query("branchID") branchId: Int
     ): Response<GroupDTO>
 
+    @GET("api/v1/clients/{clientID}")
+    suspend fun getClientById(
+        @Path("clientID") clientId: Int,
+        @Query("branchID") branchID: Int
+    ): Response<Client>
+
     @GET("api/v1/teachers")
     suspend fun getAllTeachers(
             @Query("branchID") branchId: Int

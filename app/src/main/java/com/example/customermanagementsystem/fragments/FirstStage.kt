@@ -48,6 +48,7 @@ class FirstStage : Fragment(), ClientAdapter.OnItemClickListener {
         val id: Long = clientsList[position].id
         //val board: String = clientsList[position].boards.boardName
         bundle.putLong("clientID", id)
+        bundle.putSerializable("clients", client)
         //bundle.putString("clientBoard", board)
         Log.e("clientId: ", id.toString())
         findNavController().navigate(R.id.action_mainFragment_to_bottomSheetFragment, bundle)

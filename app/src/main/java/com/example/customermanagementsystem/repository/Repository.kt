@@ -22,6 +22,10 @@ class Repository {
         return RetrofitInstance.api.changeClientStatus(clientId, toBoardId)
     }
 
+    suspend fun getClientById(clientId: Int, branchId: Int) : Response<Client>{
+        return RetrofitInstance.api.getClientById(clientId,branchId)
+    }
+
     suspend fun getAllGroups(branchId: Int):Response<List<GroupDTO>>{
         return RetrofitInstance.api.getAllGroups(branchId)
     }

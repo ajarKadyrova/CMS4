@@ -21,8 +21,10 @@ class FabBottomSheetFragment : BottomSheetDialogFragment() {
             findNavController().navigate(R.id.action_fabBottomSheetFragment_to_newStatusFragment)
         }
         add_client_btn_btm.setOnClickListener {
-            val action = FabBottomSheetFragmentDirections.actionFabBottomSheetFragmentToClientProfileFragment("fab")
-            findNavController().navigate(action)
+          //  val action = FabBottomSheetFragmentDirections.actionFabBottomSheetFragmentToClientProfileFragment("fab")
+            val bundle = Bundle()
+            bundle.putLong("clientID", -1)
+            findNavController().navigate(R.id.action_fabBottomSheetFragment_to_clientProfileFragment,  bundle)
         }
     }
 }
