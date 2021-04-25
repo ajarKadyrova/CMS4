@@ -1,5 +1,7 @@
 package com.example.customermanagementsystem.models
 
+import java.io.Serializable
+
 data class Client(
         val boards: BoardsDTO,
         val firstName: String,
@@ -16,4 +18,4 @@ data class Client(
         val id: Long,
         val ymClientID: String,
         val registrationDate: String
-)
+):Serializable

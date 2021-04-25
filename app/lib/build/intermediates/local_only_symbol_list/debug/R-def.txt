@@ -1,0 +1,16 @@
+R_DEF: Internal format may change without notice
+local
+attr? dayCount
+attr? dividerHeight
+attr? endHour
+attr? eventMargin
+attr? halfHourDividerColor
+attr? halfHourHeight
+attr? hourDividerColor
+attr? hourLabelMarginEnd
+attr? hourLabelWidth
+attr? scheduleColor
+attr? startHour
+attr? verticalDividerColor
+attr? verticalDividerWidth
+styleable CalendarWeekView hourDividerColor halfHourDividerColor verticalDividerColor scheduleColor dividerHeight verticalDividerWidth halfHourHeight hourLabelWidth hourLabelMarginEnd eventMargin startHour endHour dayCount

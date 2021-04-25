@@ -3,21 +3,24 @@ package com.example.customermanagementsystem.fragments
 import StudentsPagerAdapter
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.customermanagementsystem.R
+import com.example.customermanagementsystem.adapter.GroupStudentsAdapter
 import com.example.customermanagementsystem.models.ClientDTO
 import com.example.customermanagementsystem.models.CourseDTO
+import com.example.customermanagementsystem.models.Filter
 import com.example.customermanagementsystem.repository.Repository
 import com.example.customermanagementsystem.repository.ViewModel
 import com.example.customermanagementsystem.repository.ViewModelFactory
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import kotlinx.android.synthetic.main.fragment_group_students.*
 import java.util.*
 
 
@@ -155,4 +158,48 @@ class WrapStudentsFragment: Fragment() {
             }
         })
     }
+
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        inflater.inflate(R.menu.search_menu, menu)
+//        val search = menu?.findItem(R.id.search)
+//        val searchView = search.actionView as? androidx.appcompat.widget.SearchView
+//        searchView?.isSubmitButtonEnabled = true
+//        searchView?.setOnQueryTextListener(this)
+//    }
+
+//    override fun onQueryTextSubmit(query: String?): Boolean {
+//        if(query!=null){
+//            searchData(query)
+//        }
+//        return true
+//    }
+//
+//    override fun onQueryTextChange(query: String?): Boolean {
+//        if(query!=null){
+//            searchData(query)
+//        }
+//        return true
+//    }
+
+//    private fun searchData(query: String){
+//        val filter = Filter(null, null, query, null)
+//        val repository = Repository()
+//        val viewModelFactory = ViewModelFactory(repository)
+//        viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
+//        viewModel.getAllBoards(1, filter)
+//        viewModel.allBoards.observe(viewLifecycleOwner, Observer { response ->
+//            if(response.isSuccessful) {
+//                val studentsList = response.body()!!
+//                for ()
+//                if(response.isSuccessful){
+//                    val adapter by lazy{ GroupStudentsAdapter(studentsList) }
+//                    textView_students_group.visibility = View.GONE
+//                    adapter.setData(studentsList)
+//                    recyclerView_group_students.layoutManager = LinearLayoutManager(this.context)
+//                    recyclerView_group_students.adapter = adapter
+//                }
+//            }
+//            else Toast.makeText(context, resources.getString(R.string.error_loading), Toast.LENGTH_SHORT).show()
+//        })
+//    }
 }

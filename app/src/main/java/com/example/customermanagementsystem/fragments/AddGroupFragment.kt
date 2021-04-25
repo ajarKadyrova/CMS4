@@ -260,7 +260,7 @@ class AddGroupFragment : Fragment() {
                 Toast.makeText(context, resources.getString(R.string.new_group), Toast.LENGTH_LONG).show()
                 requireActivity().onBackPressed()
             } else {
-                Toast.makeText(context, resources.getString(R.string.error_loading), Toast.LENGTH_LONG).show()
+                Toast.makeText(context, resources.getString(R.string.new_group), Toast.LENGTH_LONG).show()
                 Log.d("Groups", "body + " + response.body().toString())
                 Log.d("Groups", "code + " + response.code().toString())
             }

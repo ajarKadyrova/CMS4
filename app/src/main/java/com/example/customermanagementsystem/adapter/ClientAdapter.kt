@@ -36,8 +36,8 @@ class ClientAdapter(private var clientsList: List<Client>,
             holder.name.text = currentClient.firstName + " " + currentClient.lastName
         }
         holder.number.text = currentClient.phoneNumber
-        //if (currentClient.wantsCourse.name != "") {
-            holder.course.text = "currentClient.wantsCourse.name"
+        if (currentClient.wantsCourse != null) {
+            holder.course.text = currentClient.wantsCourse.name
             when (holder.course.text) {
                 "Android" -> {
                     holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.green))
@@ -61,10 +61,10 @@ class ClientAdapter(private var clientsList: List<Client>,
                     holder.course.backgroundTintList = ColorStateList.valueOf(res.getColor(R.color.course_light_blue))
                 }
             }
-        //}
-        //else {
-            //holder.course.visibility = View.GONE
-        //}
+        }
+        else if (currentClient.wantsCourse == null){
+            holder.course.visibility = View.GONE
+        }
             holder.date.text = currentClient.registrationDate
     }
 

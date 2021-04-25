@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.customermanagementsystem.R
 import com.example.customermanagementsystem.repository.ViewModel
@@ -52,5 +53,13 @@ class StudentsFragment : Fragment(), StudentsAdapter.OnItemClickListener {
     override fun onItemClick(position: Int) {
         val clickedItem: StudentsDTO = studentsList[position]
         adapter.notifyItemChanged(position)
+        val bundle = Bundle()
+        val id: Long = studentsList[position].id
+        //val board: String = clientsList[position].boards.boardName
+        bundle.putLong("studentID", id)
+        bundle.putSerializable("student", studentsList[position])
+        //bundle.putString("clientBoard", board)
+        Log.e("studentID: ", id.toString())
+        findNavController().navigate(R.id.action_mainFragment_to_bottomSheetFragment, bundle)
     }
 }

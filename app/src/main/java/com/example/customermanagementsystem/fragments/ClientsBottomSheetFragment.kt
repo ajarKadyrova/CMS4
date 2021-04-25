@@ -76,8 +76,6 @@ class ClientsBottomSheetFragment : BottomSheetDialogFragment() {
                 }
             })
         }
-
-
         return rootview
     }
 

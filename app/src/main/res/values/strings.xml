@@ -88,4 +88,7 @@
     <string name="new_client_creation">Новый клиент успешно создан</string>
     <string name="no_students">В группе нет студентов</string>
     <string name="add_student_successful">Студент успешно добавлен в группу</string>
+    <string name="search">Поиск</string>
+    <string name="no_student">Список студентов пуст</string>
+    <string name="no_schedule">Расписания нет</string>
 </resources>

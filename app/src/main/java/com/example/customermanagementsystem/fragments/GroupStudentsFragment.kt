@@ -39,8 +39,7 @@ class GroupStudentsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val repository = Repository()
-        val viewModelFactory = ViewModelFactory(repository
-        )
+        val viewModelFactory = ViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
         viewModel.getGroup(1, groupId)
         viewModel.myGroup.observe(viewLifecycleOwner, Observer { response ->

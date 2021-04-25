@@ -34,7 +34,7 @@ class FirstStage : Fragment(), ClientAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         clientsList = client.clients
-        adapter.setData(clientsList)
+        adapter.setData(client.clients)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(context)
 

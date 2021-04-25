@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/no_students"
+        android:text="@string/no_student"
         android:visibility="gone"
         tools:visibility="visible"
         android:textSize="18sp"
