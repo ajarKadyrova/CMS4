@@ -142,6 +142,9 @@ class WrapClientsFragment: Fragment() {
                         if (adapter!!.count > 0) tabLayout!!.setupWithViewPager(viewPager)
                         viewPager!!.currentItem = adapter!!.count - 1
                     }
+                    else if (adapter == null){
+
+                    }
                 }
             }
         })

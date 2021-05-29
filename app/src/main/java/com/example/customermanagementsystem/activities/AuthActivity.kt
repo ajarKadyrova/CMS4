@@ -50,11 +50,17 @@ class AuthActivity : AppCompatActivity() {
         val connectManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val networkInfo = connectManager.activeNetworkInfo
         if (networkInfo != null && networkInfo.isConnected) {
+            //checkAuthorization()
             authorizeUser()
         } else {
             Toast.makeText(applicationContext, resources.getString(R.string.no_internet), Toast.LENGTH_LONG).show()
         }
     }
+
+    private fun checkAuthorization() {
+        TODO("Not yet implemented")
+    }
+
     private fun authorizeUser() {
         signIn_btn.visibility = View.INVISIBLE
         progress_bar_auth.visibility = View.VISIBLE
@@ -83,6 +89,7 @@ class AuthActivity : AppCompatActivity() {
                 }.apply()
                 Intent(this, MainActivity::class.java).also {
                     startActivity(it)
+                    finish()
                 }
             } else if (!response.isSuccessful) {
                 Log.d("AuthD", response.body().toString())

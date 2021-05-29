@@ -33,11 +33,20 @@ class FirstStage : Fragment(), ClientAdapter.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        progress_bar_clients.visibility = View.VISIBLE
         clientsList = client.clients
-        adapter.setData(client.clients)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
-
+        if(clientsList.isNotEmpty()) {
+            adapter.setData(client.clients)
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = LinearLayoutManager(context)
+            progress_bar_clients.visibility = View.GONE
+            textView.visibility = View.GONE
+        }
+        else {
+            textView.setText(R.string.no_clients)
+            progress_bar_clients.visibility = View.GONE
+            textView.visibility = View.VISIBLE
+        }
     }
 
 

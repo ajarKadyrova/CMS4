@@ -63,7 +63,7 @@
     <string name="error_loading">Что-то пошло не так</string>
     <string name="choose_date">Выберите дату</string>
     <string name="find">Найти</string>
-    <string name="error_occured">Возникла ошибка. Попробуйте позднее</string>
+    <string name="error_occured">Что-то пошло не так. Попробуйте позднее</string>
     <string name="enter_course">Введите направление</string>
     <string name="enter_groupName">Введите название группы</string>
     <string name="enter_teacher">Введите преподавателя группы</string>
@@ -91,4 +91,9 @@
     <string name="search">Поиск</string>
     <string name="no_student">Список студентов пуст</string>
     <string name="no_schedule">Расписания нет</string>
+    <string name="no_clients">Список клиентов пуст</string>
+    <string name="enter_lastname">Поле "Фамилия" пустое. Введите фамилию</string>
+    <string name="enter_name">Поле "Имя" пустое. Введите фамилию</string>
+    <string name="enter_phone">Поле "Номер телефона" пустое. Введите фамилию</string>
+    <string name="required_field">*Обязательное поле</string>
 </resources>

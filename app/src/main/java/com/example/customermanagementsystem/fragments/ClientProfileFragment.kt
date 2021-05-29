@@ -40,35 +40,20 @@ class ClientProfileFragment : Fragment() {
         clientId = bundle.getLong("clientID", -1)
         if (clientId > 0){
             setViewOfClient(clientId.toInt())
-            view.edit_btn_client.visibility = View.VISIBLE
         }
         else{
             setView()
-            view.edit_btn_client.visibility = View.GONE
         }
-
-
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        val prevFragment = args.prevFragment
-//        if (prevFragment == "fab") {
-//            edit_btn_client.visibility = View.GONE
-//            setView()
-//        } else if (prevFragment == "bottomSheet") {
-//            edit_btn_client.visibility = View.VISIBLE
-//            setViewOfClient()
-//        }
         save_btn_client.setOnClickListener {
             if (clientId < 0){
                 createNewUser()
             }
-//            if (prevFragment == "fab") {
-//                createNewUser()
-//            }
-//        }
+
         }
     }
 
@@ -133,34 +118,33 @@ class ClientProfileFragment : Fragment() {
             if (response.isSuccessful){
                 client = response.body()!!
                 setFields(client)
-
             }
         })
     }
 
     private fun setFields(client: Client) {
-        if (!client.firstName.isNullOrBlank()) {
+        if (!client.firstName.isBlank()) {
             name_client.setText(client.firstName)
         }
-        if (!client.lastName.isNullOrBlank()) {
+        if (!client.lastName.isBlank()) {
             surname_client.setText(client.lastName)
         }
-        if (!client.patronymic.isNullOrBlank()) {
+        if (!client.patronymic.isBlank()) {
             patronymic_client.setText(client.patronymic)
         }
-        if (!client.email.isNullOrBlank()) {
+        if (!client.email.isBlank()) {
             email_client.setText(client.email)
         }
-        if (!client.phoneNumber.isNullOrBlank()) {
+        if (!client.phoneNumber.isBlank()) {
             phone_client.setText(client.phoneNumber)
         }
-        if (!client.utmSource.isNullOrBlank()) {
+        if (!client.utmSource.isBlank()) {
             source_client.setText(client.utmSource)
         }
 //        if (!client.boards.boardName.isNullOrBlank()){
 //            status_client.setText(client.boards.boardName)
 //        }
-        if (!client.comments.isNullOrBlank()) {
+        if (!client.comments.isBlank()) {
             comment_client.setText(client.comments)
         }
 //        if (!client.wantsCourse.name.isNullOrBlank()) {
@@ -193,22 +177,48 @@ class ClientProfileFragment : Fragment() {
         val board = BoardID(1)
         val wantCourse = BoardID(1)
         val newClient = PostClient(board, name, surname, patronymic, email, phone, hasLaptop, wantCourse, source, comment)
-        val repository = Repository()
-        val viewModelFactory = ViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
-        viewModel.createClient( 1, newClient)
-        viewModel.newClientResponse.observe(viewLifecycleOwner, Observer { response ->
-            if (response.isSuccessful) {
-                Log.d("NewClient", response.body().toString())
-                Log.d("NewClient", response.code().toString())
-                Log.d("NewClient", response.message())
-                Toast.makeText(context, resources.getString(R.string.new_client_creation), Toast.LENGTH_LONG).show()
-            } else if (!response.isSuccessful) {
-                Log.d("NewClient", response.body().toString())
-                Log.d("NewClient", response.code().toString())
-                Log.d("NewClient", response.message())
-                Toast.makeText(context, resources.getString(R.string.error_occured), Toast.LENGTH_LONG).show()
+        if(checkFields(newClient)) {
+            val repository = Repository()
+            val viewModelFactory = ViewModelFactory(repository)
+            viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
+            viewModel.createClient(1, newClient)
+            viewModel.newClientResponse.observe(viewLifecycleOwner, Observer { response ->
+                if (response.isSuccessful) {
+                    Log.d("NewClient", response.body().toString())
+                    Log.d("NewClient", response.code().toString())
+                    Log.d("NewClient", response.message())
+                    Toast.makeText(context, resources.getString(R.string.new_client_creation), Toast.LENGTH_LONG).show()
+                } else if (!response.isSuccessful) {
+                    Log.d("NewClient", response.body().toString())
+                    Log.d("NewClient", response.code().toString())
+                    Log.d("NewClient", response.message())
+                    Toast.makeText(context, resources.getString(R.string.error_occured), Toast.LENGTH_LONG).show()
+                }
+            })
+        }
+    }
+
+    private fun checkFields(newClient: PostClient): Boolean {
+        when {
+            newClient.lastName.isEmpty() -> {
+                Toast.makeText(context, R.string.enter_lastname, Toast.LENGTH_LONG).show()
+                surname_client_til.isErrorEnabled = true;
+                surname_client_til.error = getString(R.string.required_field)
+                return false
             }
-        })
+            newClient.firstName.isEmpty() -> {
+                Toast.makeText(context, R.string.enter_name, Toast.LENGTH_LONG).show()
+                name_client_til.isErrorEnabled = true;
+                name_client_til.error = getString(R.string.required_field)
+                return false
+            }
+            newClient.phoneNumber.isEmpty() -> {
+                Toast.makeText(context, R.string.enter_phone, Toast.LENGTH_LONG).show()
+                phone_client_til.isErrorEnabled = true;
+                phone_client_til.error = getString(R.string.required_field)
+                return false
+            }
+        }
+        return true
     }
 }
