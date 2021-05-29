@@ -1,6 +1,5 @@
 package com.example.customermanagementsystem.fragments
 
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater

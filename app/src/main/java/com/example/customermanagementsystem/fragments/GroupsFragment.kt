@@ -1,6 +1,5 @@
 package com.example.customermanagementsystem.fragments
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -15,11 +14,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.customermanagementsystem.R
-import com.example.customermanagementsystem.repository.ViewModel
-import com.example.customermanagementsystem.repository.ViewModelFactory
 import com.example.customermanagementsystem.adapter.GroupAdapter
 import com.example.customermanagementsystem.models.GroupDTO
 import com.example.customermanagementsystem.repository.Repository
+import com.example.customermanagementsystem.repository.ViewModel
+import com.example.customermanagementsystem.repository.ViewModelFactory
 import kotlinx.android.synthetic.main.fragment_groups.*
 
 

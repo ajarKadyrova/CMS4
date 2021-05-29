@@ -9,18 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager.widget.ViewPager
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.customermanagementsystem.R
-import com.example.customermanagementsystem.adapter.GroupStudentsAdapter
-import com.example.customermanagementsystem.models.ClientDTO
 import com.example.customermanagementsystem.models.CourseDTO
-import com.example.customermanagementsystem.models.Filter
 import com.example.customermanagementsystem.repository.Repository
 import com.example.customermanagementsystem.repository.ViewModel
 import com.example.customermanagementsystem.repository.ViewModelFactory
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
-import kotlinx.android.synthetic.main.fragment_group_students.*
 import java.util.*
 
 
